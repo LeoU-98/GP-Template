@@ -18,42 +18,6 @@ export const productData = [
     originalPrice: "56",
   },
   {
-    productImage: product2,
-    productName: "micro rain",
-    discountPrice: "22",
-    originalPrice: "35",
-  },
-  {
-    productImage: product3,
-    productName: "pulsating sprinklers",
-    discountPrice: "40",
-    originalPrice: "60",
-  },
-  {
-    productImage: product4,
-    productName: "drive sprinkler",
-    discountPrice: "43",
-    originalPrice: "60",
-  },
-  {
-    productImage: product5,
-    productName: "husqvarna LC 140S",
-    discountPrice: "42",
-    originalPrice: "60",
-  },
-  {
-    productImage: product6,
-    productName: "pruninig saw",
-    discountPrice: "41",
-    originalPrice: "60",
-  },
-  {
-    productImage: product7,
-    productName: "micro rain",
-    discountPrice: "34",
-    originalPrice: "60",
-  },
-  {
     productImage: product8,
     productName: "garden fork",
     discountPrice: "20",
@@ -174,36 +138,6 @@ export const productData = [
     originalPrice: "33",
   },
   {
-    productImage: product6,
-    productName: "pruninig saw",
-    discountPrice: "41",
-    originalPrice: "60",
-  },
-  {
-    productImage: product7,
-    productName: "micro rain",
-    discountPrice: "34",
-    originalPrice: "60",
-  },
-  {
-    productImage: product8,
-    productName: "garden fork",
-    discountPrice: "20",
-    originalPrice: "33",
-  },
-  {
-    productImage: product6,
-    productName: "pruninig saw",
-    discountPrice: "41",
-    originalPrice: "60",
-  },
-  {
-    productImage: product7,
-    productName: "micro rain",
-    discountPrice: "34",
-    originalPrice: "60",
-  },
-  {
     productImage: product8,
     productName: "garden fork",
     discountPrice: "20",
@@ -256,156 +190,6 @@ export const productData = [
     productName: "cutco garden trowel",
     discountPrice: "10",
     originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
   },
 ];
 
@@ -481,14 +265,56 @@ export const productData = [
 export const megaMenuData = [
   {
     categoryItem: "garden equipment",
-    Items: ["bow rake", "garden kinfe", "pruning shears"],
+    categoryLink: "garden-equipment",
+    items: [
+      {
+        itemTitle: "bow rake",
+        itemLink: "garden-equipment/bow-rake",
+      },
+      {
+        itemTitle: "garden knife",
+        itemLink: "garden-equipment/garden-knife",
+      },
+      {
+        itemTitle: "pruning shears",
+        itemLink: "garden-equipment/pruning-shears",
+      },
+    ],
   },
   {
     categoryItem: "planting tools",
-    Items: ["gloves", "hand trowel", "pruning shears"],
+    categoryLink: "planting-tools",
+    items: [
+      {
+        itemTitle: "gloves",
+        itemLink: "planting-tools/gloves",
+      },
+      {
+        itemTitle: "hand trowel",
+        itemLink: "planting-tools/hand-trowel",
+      },
+      {
+        itemTitle: "pruning shears",
+        itemLink: "planting-tools/pruning-shears",
+      },
+    ],
   },
   {
     categoryItem: "string trimmer",
-    Items: ["hand pruner", "hedge shears", "topiary"],
+    categoryLink: "string-trimmer",
+    items: [
+      {
+        itemTitle: "hand prunner",
+        itemLink: "hand-prunner",
+      },
+      {
+        itemTitle: "hedge shears",
+        itemLink: "hedge-shears",
+      },
+      {
+        itemTitle: "topiary",
+        itemLink: "topiary",
+      },
+    ],
   },
 ];

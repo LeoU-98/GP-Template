@@ -25,7 +25,8 @@ function BreadCrumb() {
   // console.log(currentLocation);
 
   return (
-    <div className="px-2">
+    <div className="">
+      {/* <div className="px-2"> */}
       <div className="my-4 items-center justify-between border-[1px] border-gray-300 bg-white px-5 py-2 sm:flex">
         <div className="text-center">
           <span className="uppercase">{currentLocation}</span>

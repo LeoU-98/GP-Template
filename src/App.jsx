@@ -40,6 +40,56 @@ const router = createBrowserRouter([
         path: "account",
         element: <Account />,
       },
+
+      {
+        path: "garden-equipment",
+        element: <Products />,
+        children: [
+          {
+            path: "bow-rake",
+            element: <Products />,
+          },
+          {
+            path: "garden-knife",
+            element: <Products />,
+          },
+          {
+            path: "pruning-shears",
+            element: <Products />,
+          },
+        ],
+      },
+      {
+        path: "planting-tools",
+        element: <Products />,
+        children: [
+          {
+            path: "gloves",
+            element: <Products />,
+          },
+          {
+            path: "hand-trowel",
+            element: <Products />,
+          },
+          {
+            path: "pruning-shears",
+            element: <Products />,
+          },
+        ],
+      },
+
+      // {
+      //   path: "gloves",
+      //   element: <Products />,
+      // },
+      // {
+      //   path: "hand-trowel",
+      //   element: <Products />,
+      // },
+      // {
+      //   path: "pruning-shears",
+      //   element: <Products />,
+      // },
       {
         path: "product",
         element: <Products />,
@@ -52,22 +102,17 @@ function App() {
   return (
     <div className="bg-mercury-50">
       {/* <Header />
-
       <Home />
-
       <Footer /> */}
 
       {/* <FilterBy /> */}
-
       {/* <Account /> */}
       {/* <SimpleSlider /> */}
-
       {/* <BreadCrumb /> */}
 
       <RouterProvider router={router} />
 
       {/* <Pagination /> */}
-
       {/* <Products /> */}
     </div>
   );

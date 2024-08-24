@@ -20,7 +20,7 @@ import {
 /////////////////////////
 
 import { megaMenuData } from "../utils/ProductsData";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 //////////////////////////////////////////////////
 
@@ -68,7 +68,7 @@ function HeaderBot() {
           {/* right top */}
           <div className="col-span-1 col-start-2 row-span-1 row-start-1 max-h-12 self-center pr-3">
             <div className="flex items-center text-xs">
-              <from>
+              <form>
                 <input
                   type="text"
                   placeholder="Search..."
@@ -77,7 +77,7 @@ function HeaderBot() {
                 <button className="rounded-r-full bg-lima-500 p-[10px] uppercase text-white duration-300 hover:bg-black">
                   search
                 </button>
-              </from>
+              </form>
             </div>
           </div>
         </div>
@@ -105,16 +105,10 @@ function NavList() {
           </NavLink>
         </li>
         <li>
-          <NavListMenuWithCategory
-            data={megaMenuData}
-            handlerText={"gardening store"}
-          />
+          <NestedNavMenu data={megaMenuData} handlerText={"gardening store"} />
         </li>
         <li>
-          <NavListMenuWithCategory
-            data={megaMenuData}
-            handlerText={"shovel & rake"}
-          />
+          <NestedNavMenu data={megaMenuData} handlerText={"shovel & rake"} />
         </li>
         <li>
           <NavLink
@@ -125,55 +119,64 @@ function NavList() {
           </NavLink>
         </li>
 
-        <NavLink
-          to="blog"
-          className="middle-underline block h-full w-full text-nowrap text-sm font-semibold uppercase text-gray-700 after:mt-0 hover:text-green-500 hover:after:w-full"
-        >
-          Blog
-        </NavLink>
-        <li></li>
+        <li>
+          <NavLink
+            to="blog"
+            className="middle-underline block h-full w-full text-nowrap text-sm font-semibold uppercase text-gray-700 after:mt-0 hover:text-green-500 hover:after:w-full"
+          >
+            Blog
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
 }
 
-function CateogroyList({ categoryItem, Items }) {
+function CateogroyList({ data }) {
+  const { categoryItem, categoryLink, items } = data;
+
   return (
     <List className="min-w-0 bg-white hover:bg-none">
-      {/* Cateogroy  */}
-      <ListItem className="rounded-none border-b-2 border-gray-200 p-1 capitalize text-gray-900 hover:bg-white hover:text-green-500">
-        {categoryItem}
-      </ListItem>
-      {/* Rest of Items  */}
-      {Items?.map((el) => (
-        <ListItem
-          className="p-1 text-sm capitalize text-gray-700 hover:bg-white hover:text-lima-500"
-          key={el}
-        >
-          {el}
-        </ListItem>
-      ))}
+      <ul>
+        {/* Cateogroy  */}
+        <li className="mb-1">
+          <NavLink
+            to={categoryLink}
+            className="block w-full cursor-pointer rounded-none border-b-2 border-gray-200 p-1 capitalize text-gray-900 hover:bg-white hover:text-green-500"
+          >
+            {categoryItem}
+          </NavLink>
+        </li>
+        {/* Rest of Items  */}
+        {items?.map(({ itemTitle, itemLink }, key) => (
+          <li key={key}>
+            <NavLink
+              to={itemLink}
+              className="block w-full p-1 text-sm capitalize text-gray-700 hover:bg-white hover:text-lima-500"
+            >
+              {itemTitle}
+            </NavLink>
+          </li>
+        ))}
+      </ul>
     </List>
   );
 }
 
 CateogroyList.propTypes = {
-  categoryItem: propTypes.string,
-  Items: propTypes.array,
+  data: propTypes.object,
 };
 
-function NavListMenuWithCategory({ data, handlerText }) {
+function NestedNavMenu({ data, handlerText }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const renderItems = data.map(({ categoryItem, Items }, key) => (
-    <li key={key}>
-      <Menu className="flex items-center gap-4 rounded-md border-2 border-green-500">
-        <CateogroyList
-          categoryItem={categoryItem}
-          Items={Items}
-        ></CateogroyList>
-      </Menu>
-    </li>
+  const renderItems = data.map((data, key) => (
+    <Menu
+      className="flex items-center gap-4 rounded-md border-2 border-green-500"
+      key={key}
+    >
+      <CateogroyList data={data} />
+    </Menu>
   ));
 
   return (
@@ -198,9 +201,9 @@ function NavListMenuWithCategory({ data, handlerText }) {
         </MenuHandler>
 
         <MenuList className="left-0 hidden max-w-screen-xl rounded-lg border-b-2 border-b-lima-500 py-3 lg:block">
-          <ul className="grid grid-cols-3 gap-y-2 outline-none outline-0">
+          <div className="grid grid-cols-3 gap-y-2 outline-none outline-0">
             {renderItems}
-          </ul>
+          </div>
         </MenuList>
       </Menu>
       <div className="block lg:hidden">
@@ -210,7 +213,7 @@ function NavListMenuWithCategory({ data, handlerText }) {
   );
 }
 
-NavListMenuWithCategory.propTypes = {
+NestedNavMenu.propTypes = {
   data: propTypes.array,
   handlerText: propTypes.string,
 };

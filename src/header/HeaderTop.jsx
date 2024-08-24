@@ -32,18 +32,18 @@ function HeaderTop() {
               </MenuHandler>
               <MenuList className="left-0 min-w-32 border-b-2 border-b-lima-500">
                 <ul className="outline-none">
-                  <li className="group cursor-pointer px-0 py-1 outline-none">
+                  <li className="group cursor-pointer outline-none">
                     <NavLink
                       to="account"
-                      className="outline-none group-hover:text-lima-500"
+                      className="block px-0 py-1 outline-none group-hover:text-lima-500"
                     >
                       Sign in
                     </NavLink>
                   </li>
-                  <li className="group cursor-pointer px-0 py-1 outline-none">
+                  <li className="group cursor-pointer outline-none">
                     <NavLink
                       to="account"
-                      className="outline-none group-hover:text-lima-500"
+                      className="block px-0 py-1 outline-none group-hover:text-lima-500"
                     >
                       Register
                     </NavLink>

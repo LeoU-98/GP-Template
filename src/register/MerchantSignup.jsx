@@ -1,111 +1,124 @@
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
+function MerchantSignup() {
+  return (
+    <div className="flex flex-col-reverse gap-0 md:flex-row">
+      <MerchantForm />
+      <MerchantFeatures />
+    </div>
+  );
+}
+
+export default MerchantSignup;
+
 function MerchantForm() {
   return (
-    <form>
-      <div className="flex h-full w-fit flex-col gap-8 bg-white p-5 pt-28">
-        {/* name  */}
-        <div className="flex justify-between gap-5">
-          <label className="flex-grow">
-            First Name
+    <div className="basis-3/5">
+      <form>
+        <div className="flex h-full w-fit flex-col gap-8 bg-white p-5 pt-8">
+          {/* name  */}
+          <div className="flex justify-between gap-5">
+            <label className="flex-grow">
+              First Name
+              <input
+                type="text"
+                name="firstName"
+                placeholder="LeoU"
+                className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
+              />
+            </label>
+            <label className="flex-grow">
+              Last Name
+              <input
+                type="text"
+                name="lastName"
+                placeholder="The G"
+                className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
+              />
+            </label>
+          </div>
+          {/* email */}
+          <label>
+            Email
             <input
               type="text"
-              name="firstName"
-              placeholder="LeoU"
+              name="email"
+              placeholder="LeoU_98@gmail.com"
               className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
             />
           </label>
-          <label className="flex-grow">
-            Last Name
-            <input
-              type="text"
-              name="lastName"
-              placeholder="The G"
-              className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
-            />
-          </label>
-        </div>
-        {/* email */}
-        <label>
-          Email
-          <input
-            type="text"
-            name="email"
-            placeholder="LeoU_98@gmail.com"
-            className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
-          />
-        </label>
 
-        {/* address  */}
-        <label>
-          Address
-          <input
-            type="text"
-            name="address"
-            placeholder="159 2nd St APT 705, Jersey City, NJ 07302"
-            className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
-          />
-        </label>
-        {/* phone  */}
-        <div className="flex gap-5">
-          <label className="flex-grow">
-            Phone
+          {/* address  */}
+          <label>
+            Address
             <input
               type="text"
-              name="phone"
-              placeholder="01145024481"
+              name="address"
+              placeholder="159 2nd St APT 705, Jersey City, NJ 07302"
               className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
             />
           </label>
-          <label className="flex-grow">
-            Another Phone
-            <input
-              type="text"
-              name="anotherPhone"
-              placeholder="01145024481"
-              className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
-            />
-          </label>
-        </div>
+          {/* phone  */}
+          <div className="flex gap-5">
+            <label className="flex-grow">
+              Phone
+              <input
+                type="text"
+                name="phone"
+                placeholder="01145024481"
+                className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
+              />
+            </label>
+            <label className="flex-grow">
+              Another Phone
+              <input
+                type="text"
+                name="anotherPhone"
+                placeholder="01145024481"
+                className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
+              />
+            </label>
+          </div>
 
-        {/* offers */}
-        <label className="cursor-pointer select-none capitalize">
-          <input
-            type="checkbox"
-            name="offers"
-            className="relative top-[2px] mr-2 size-4 cursor-pointer capitalize accent-lima-500"
-          />
-          receive offers from our partners
-        </label>
-        {/* Newsletter */}
-        <label className="cursor-pointer select-none capitalize">
-          <input
-            type="checkbox"
-            name="newsletter"
-            className="relative top-[2px] mr-2 size-4 cursor-pointer capitalize accent-lima-500"
-          />
-          sign up for our Newsletter
-          <div>(You may unsubscribe at any moment)</div>
-        </label>
-        {/* policy  */}
-        <label className="cursor-pointer select-none sm:text-balance lg:text-pretty">
-          <input
-            type="checkbox"
-            name="policy"
-            className="relative top-[2px] mr-2 size-4 cursor-pointer accent-lima-500"
-          />
-          By creating an account, you agree to our{" "}
-          <a className="text-lima-500 underline hover:text-lima-400">Terms</a>{" "}
-          and have read and acknowledge the{" "}
-          <a className="text-lima-500 underline hover:text-lima-400">
-            Global Privacy Statement
-          </a>
-        </label>
-        <button className="rounded-xl bg-lima-500 py-4 text-sm font-semibold uppercase text-white hover:bg-black">
-          sign up
-        </button>
-      </div>
-    </form>
+          {/* offers */}
+          <label className="cursor-pointer select-none capitalize">
+            <input
+              type="checkbox"
+              name="offers"
+              className="relative top-[2px] mr-2 size-4 cursor-pointer capitalize accent-lima-500"
+            />
+            receive offers from our partners
+          </label>
+          {/* Newsletter */}
+          <label className="cursor-pointer select-none capitalize">
+            <input
+              type="checkbox"
+              name="newsletter"
+              className="relative top-[2px] mr-2 size-4 cursor-pointer capitalize accent-lima-500"
+            />
+            sign up for our Newsletter
+            <div>(You may unsubscribe at any moment)</div>
+          </label>
+          {/* policy  */}
+          <label className="cursor-pointer select-none sm:text-balance lg:text-pretty">
+            <input
+              type="checkbox"
+              name="policy"
+              className="relative top-[2px] mr-2 size-4 cursor-pointer accent-lima-500"
+            />
+            By creating an account, you agree to our{" "}
+            <a className="text-lima-500 underline hover:text-lima-400">Terms</a>{" "}
+            and have read and acknowledge the{" "}
+            <a className="text-lima-500 underline hover:text-lima-400">
+              Global Privacy Statement
+            </a>
+          </label>
+          <button className="rounded-xl bg-lima-500 py-4 text-sm font-semibold uppercase text-white hover:bg-black">
+            sign up
+          </button>
+        </div>
+      </form>
+    </div>
   );
 }
 
@@ -159,14 +172,3 @@ function MerchantFeatures() {
     </div>
   );
 }
-
-function MerchantSignup() {
-  return (
-    <div className="flex flex-col-reverse gap-0 md:flex-row">
-      <MerchantForm />
-      <MerchantFeatures />
-    </div>
-  );
-}
-
-export default MerchantSignup;

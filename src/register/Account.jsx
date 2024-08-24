@@ -32,15 +32,15 @@ function Account() {
         <BreadCrumb />
       </div>
 
-      <div className="flex gap-3">
+      <div className="flex gap-3 px-2">
         {/* aside  */}
-        <div className="hidden h-fit w-96 overflow-hidden lg:block">
+        <div className="hidden h-fit w-96 overflow-hidden lg:block lg:max-w-[215px] 2xl:max-w-[300px]">
           <Link to="offer">
             <img src={image1} className="w-full duration-300 hover:scale-110" />
           </Link>
         </div>
         {/* account */}
-        <div>
+        <div className="flex-grow">
           <Tabs id="custom-animation" value={"register"}>
             <TabsHeader
               className=""
@@ -54,7 +54,6 @@ function Account() {
                   key={value}
                   value={value}
                   className="border-b-2 border-lima-500 bg-white py-4 text-gray-900 hover:text-lima-500"
-                  // className="border-b-2 border-lima-500 text-gray-900 hover:text-lima-500"
                 >
                   {label}
                 </Tab>

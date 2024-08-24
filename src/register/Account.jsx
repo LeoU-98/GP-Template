@@ -9,6 +9,8 @@ import {
 import SignIn from "./SignIn";
 import Register from "./Register";
 import BreadCrumb from "../ui/BreadCrumb";
+import { Link } from "react-router-dom";
+import image1 from "../images/sidebar_banner.jpg";
 
 function Account() {
   const data = [
@@ -24,9 +26,6 @@ function Account() {
     },
   ];
 
-  ///  tab border bottom only
-  ///  moving bg border all except bottom
-
   return (
     <div className="container mx-auto mb-8">
       <div>
@@ -34,7 +33,13 @@ function Account() {
       </div>
 
       <div className="flex gap-3">
-        <div className="hidden w-96 bg-red-500 lg:block">Aside</div>
+        {/* aside  */}
+        <div className="hidden h-fit w-96 overflow-hidden lg:block">
+          <Link to="offer">
+            <img src={image1} className="w-full duration-300 hover:scale-110" />
+          </Link>
+        </div>
+        {/* account */}
         <div>
           <Tabs id="custom-animation" value={"register"}>
             <TabsHeader
@@ -42,7 +47,6 @@ function Account() {
               indicatorProps={{
                 className:
                   "bg-transparent border-2   border-b-2 border-green-500 pb-[56px] z-30 border-b-white shadow-none   rounded-lg rounded-b-none ",
-                // "bg-transparent border-2 border-b-black border-b-0 border-green-500   shadow-none rounded-none",
               }}
             >
               {data.map(({ label, value }) => (
@@ -77,51 +81,5 @@ function Account() {
     </div>
   );
 }
-
-// function Account() {
-//   const data = [
-//     {
-//       label: "Sign In",
-//       value: "signin",
-//       form: <SignIn />,
-//     },
-//     {
-//       label: "Register",
-//       value: "register",
-//       form: <Register />,
-//     },
-//   ];
-
-//   return (
-//     <div className="container mx-auto">
-//       <Tabs id="custom-animation" value="signin">
-//         <TabsHeader>
-//           {data.map(({ label, value }) => (
-//             <Tab
-//               key={value}
-//               value={value}
-//               className="text-gray-900 hover:text-lima-500"
-//             >
-//               {label}
-//             </Tab>
-//           ))}
-//         </TabsHeader>
-//         <TabsBody
-//           animate={{
-//             initial: { x: 2000 },
-//             mount: { x: 0 },
-//             unmount: { x: 2000 },
-//           }}
-//         >
-//           {data.map(({ value, form }) => (
-//             <TabPanel key={value} value={value}>
-//               {form}
-//             </TabPanel>
-//           ))}
-//         </TabsBody>
-//       </Tabs>
-//     </div>
-//   );
-// }
 
 export default Account;

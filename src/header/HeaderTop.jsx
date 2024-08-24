@@ -3,7 +3,7 @@ import { UserIcon } from "@heroicons/react/24/outline";
 import { Menu, MenuHandler, MenuList } from "@material-tailwind/react";
 import english from "../images/language/1.jpg";
 import arabic from "../images/language/2.jpg";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 function HeaderTop() {
   return (

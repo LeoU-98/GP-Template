@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import banner1 from "../images/banner-1.jpg";
 import banner2 from "../images/banner-2.jpg";
 import propTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 SamplePrevArrow.propTypes = {
   className: propTypes.string,
@@ -16,15 +17,11 @@ SampleNextArrow.propTypes = {
   onClick: propTypes.func,
 };
 
-{
-  /* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M278.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-160 160c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L210.7 256 73.4 118.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l160 160z"/></svg> */
-}
-
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} bg-lima-500 hover:bg-lima-600 right-5 z-10 size-10 rounded-full opacity-100 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-base before:content-['⟩']`}
+      className={`${className} right-5 z-10 size-10 rounded-full bg-lima-500 opacity-100 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-base before:content-['⟩'] hover:bg-lima-600`}
       style={{ ...style }}
       onClick={onClick}
     />
@@ -35,7 +32,7 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} bg-lima-500 hover:bg-lima-600 left-5 z-10 size-10 rounded-full opacity-100 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-base before:content-['⟨']`}
+      className={`${className} left-5 z-10 size-10 rounded-full bg-lima-500 opacity-100 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-base before:content-['⟨'] hover:bg-lima-600`}
       style={{ ...style }}
       onClick={onClick}
     />
@@ -50,12 +47,12 @@ export default function IntroCarousel() {
     prevArrow: <SamplePrevArrow />,
     dotsClass: "slick-dots  bottom-[0] ",
     customPaging: () => (
-      <div className="active-helper bg-lima-500 size-2 rounded-full opacity-50"></div>
+      <div className="active-helper size-2 rounded-full bg-lima-500 opacity-50"></div>
     ),
     autoplay: true,
-    speed: 3000,
-    autoplaySpeed: 2000,
-    cssEase: "linear",
+    speed: 1300,
+    autoplaySpeed: 3000,
+    // cssEase: "linear",
     responsive: [
       {
         breakpoint: 1530,
@@ -77,41 +74,58 @@ export default function IntroCarousel() {
   return (
     <div className="">
       <Slider {...settings}>
-        <div>
-          <IntroItem />
-        </div>
-        <div>
-          <IntroItem />
-        </div>
-        <div>
-          <IntroItem />
-        </div>
-        <div>
-          <IntroItem />
-        </div>
+        {introData.map((item, key) => (
+          <div key={key}>
+            <IntroItem data={item} />
+          </div>
+        ))}
       </Slider>
     </div>
   );
 }
 
-function IntroItem() {
+const introData = [
+  {
+    promoTitle: "Best Quality Gardenning Tools",
+    promoDesc: "Discount Up To 40% Off",
+    promoBanner: banner1,
+    promoLink: "link1",
+  },
+  {
+    promoTitle: "Latest Garden Flowring Plants",
+    promoDesc: "Shipping & Cash on Delivery Avaliable",
+    promoBanner: banner2,
+    promoLink: "link2",
+  },
+];
+
+function IntroItem({ data }) {
+  const { promoTitle, promoDesc, promoBanner, promoLink } = data;
+
   return (
     <div className="relative bg-green-500">
       <div className="h-full w-full">
-        <img src={banner1} alt="banner"></img>
+        <img src={promoBanner} alt="banner"></img>
       </div>
       <div className="absolute left-[5%] top-1/2 z-10 -translate-y-1/2 text-red-500">
-        <p className="animate-fadeInLeft text-[10px] text-gray-600 sm:text-xs md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
-          Shipping & Cash on Delivery Avaliable
-        </p>
+        <div className="text-[10px] text-gray-600 sm:text-xs md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
+          {promoDesc}
+        </div>
 
-        <h1 className="animate-fadeInLeft my-1 text-xs text-black sm:text-sm md:text-xl lg:mt-3 lg:text-3xl xl:text-4xl 2xl:mt-6 2xl:text-5xl">
-          Latest Garden Flowring Plants
+        <h1 className="my-1 text-xs text-black sm:text-sm md:text-xl lg:mt-3 lg:text-3xl xl:text-4xl 2xl:mt-6 2xl:text-5xl">
+          {promoTitle}
         </h1>
-        <button className="animate-fadeInLeft bg-lima-500 mt-2 cursor-pointer rounded-full p-1 px-2 text-[10px] text-white duration-300 hover:bg-black sm:text-sm md:text-base lg:mt-6 lg:px-4 2xl:mt-12">
+        <Link
+          to={promoLink}
+          className="mt-2 inline-block cursor-pointer rounded-full bg-lima-500 p-1 px-2 text-[10px] text-white duration-300 hover:bg-black sm:text-sm md:text-base lg:mt-6 lg:px-4 2xl:mt-12"
+        >
           Shop Now
-        </button>
+        </Link>
       </div>
     </div>
   );
 }
+
+IntroItem.propTypes = {
+  data: propTypes.object,
+};

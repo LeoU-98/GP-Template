@@ -1,0 +1,168 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*//////////////////////*/
+/*    Intro Slider      */
+/*//////////////////////*/
+
+.slick-dots .slick-active .active-helper {
+  opacity: 1;
+}
+
+/***** Slide Right *****/
+.slide-right {
+  animation: 6s slide-right infinite;
+}
+@keyframes slide-right {
+  0%,
+  20% {
+    visibility: hidden;
+  }
+
+  20%,
+  50% {
+    margin-left: -100%;
+  }
+
+  50%,
+  100% {
+    visibility: visible;
+    margin-left: 0%;
+  }
+}
+
+/***** Slide Left *****/
+.slide-left {
+  animation: 3s slide-left;
+}
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-left: 0%;
+  }
+}
+
+/***** FadeIn Underline *****/
+
+.fade-in {
+  animation: fadeIn ease 3s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInLeft {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateZ(0);
+    opacity: 1;
+  }
+}
+
+.animate-fadeInLeft {
+  -webkit-animation-name: fadeInLeft;
+  animation-name: fadeInLeft;
+  -webkit-animation-delay: 1.2s;
+  animation-delay: 1.2s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation-duration: 1.2s;
+  animation-duration: 1.2s;
+}
+
+@layer components {
+  .newsletter-background {
+    background-image: url(/src/images/newsletter-bg.jpg);
+  }
+}
+
+.middle-underline::after {
+  content: "";
+  height: 2px;
+  background-color: #6bb42f;
+  display: block;
+  width: 0;
+  transition-duration: 300ms;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.left-underline::after {
+  content: "";
+  height: 2px;
+  background-color: #6bb42f;
+  display: block;
+  width: 0;
+  transition-duration: 500ms;
+  margin-top: 5px;
+}
+
+/*////////////////////////*/
+/*   scroll bar styling   */
+/*////////////////////////*/
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f9fafb;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c8c8c8;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #adadad;
+}
+
+/* //////////////////////////// */
+
+.slick-track {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+/*/////////////////////////////*/
+/*       Rounded-CheckBox      */
+/*/////////////////////////////*/
+input[type="checkbox"] + label span:first-of-type {
+  background-color: #fff;
+  border-color: #999;
+}
+input[type="checkbox"]:checked + label span:first-of-type {
+  background-color: #6bb42f;
+  border-color: #fff;
+  color: #fff;
+  background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg width='14px' height='10px' viewBox='0 0 14 10' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3C!-- Generator: Sketch 59.1 (86144) - https://sketch.com --%3E%3Ctitle%3Echeck%3C/title%3E%3Cdesc%3ECreated with Sketch.%3C/desc%3E%3Cg id='Page-1' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='ios_modification' transform='translate(-27.000000, -191.000000)' fill='%23FFFFFF' fill-rule='nonzero'%3E%3Cg id='Group-Copy' transform='translate(0.000000, 164.000000)'%3E%3Cg id='ic-check-18px' transform='translate(25.000000, 23.000000)'%3E%3Cpolygon id='check' points='6.61 11.89 3.5 8.78 2.44 9.84 6.61 14 15.56 5.05 14.5 4'%3E%3C/polygon%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background-size: 12px 8px;
+}
+
+.checkbox-inner {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #999;
+  background: transparent no-repeat center;
+}
+
+/* //////////////////////////// */

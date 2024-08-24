@@ -1,0 +1,216 @@
+import { useState, useEffect } from "react";
+import propTypes from "prop-types";
+import {
+  Collapse,
+  IconButton,
+  List,
+  ListItem,
+  Menu,
+  MenuHandler,
+  MenuList,
+} from "@material-tailwind/react";
+import {
+  Bars3Icon,
+  ChevronDownIcon,
+  XMarkIcon,
+} from "@heroicons/react/24/outline";
+
+/////////////////////////
+//    Fake Data        //
+/////////////////////////
+
+import { megaMenuData } from "../utils/ProductsData";
+import { Link, NavLink } from "react-router-dom";
+
+//////////////////////////////////////////////////
+
+function HeaderBot() {
+  const [openNav, setOpenNav] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener(
+      "resize",
+      () => window.innerWidth >= 960 && setOpenNav(false),
+    );
+  }, []);
+
+  return (
+    <div className="border-t-2 border-t-gray-200 bg-white">
+      <div className="container mx-auto">
+        <div className="grid-rows[auto_auto] grid max-w-none grid-cols-[auto_auto] justify-between rounded-none px-0 py-1 shadow-none">
+          {/* left top */}
+          <div className="col-span-1 col-start-1 row-span-1 row-start-1">
+            <div className="flex items-center text-blue-gray-900">
+              <div className="hidden lg:block">
+                <NavList />
+              </div>
+              <IconButton
+                variant="text"
+                className="text-gray-600 lg:hidden"
+                onClick={() => setOpenNav(!openNav)}
+              >
+                {openNav ? (
+                  <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+                ) : (
+                  <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+                )}
+              </IconButton>
+            </div>
+          </div>
+
+          {/* center bot */}
+          <div className="col-span-2 row-start-2">
+            <Collapse open={openNav}>
+              <NavList className="absolute" />
+            </Collapse>
+          </div>
+
+          {/* right top */}
+          <div className="col-span-1 col-start-2 row-span-1 row-start-1 max-h-12 self-center pr-3">
+            <div className="flex items-center text-xs">
+              <from>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  className="rounded-l-full bg-gray-100 px-4 py-[10px] text-gray-800 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-lima-500 md:w-64"
+                />
+                <button className="rounded-r-full bg-lima-500 p-[10px] uppercase text-white duration-300 hover:bg-black">
+                  search
+                </button>
+              </from>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default HeaderBot;
+
+//////////////////////////////
+///      NavBar            ///
+//////////////////////////////
+
+function NavList() {
+  return (
+    <nav>
+      <ul className="flex min-w-[240px] flex-col gap-4 px-4 py-4 font-sans text-base font-normal text-blue-gray-700 lg:flex-row lg:items-center lg:gap-10 lg:px-0 lg:py-2">
+        <li>
+          <NavLink
+            to="/"
+            className="middle-underline block h-full w-full text-nowrap text-sm font-semibold uppercase text-gray-700 after:mt-0 hover:text-green-500 hover:after:w-full"
+          >
+            home
+          </NavLink>
+        </li>
+        <li>
+          <NavListMenuWithCategory
+            data={megaMenuData}
+            handlerText={"gardening store"}
+          />
+        </li>
+        <li>
+          <NavListMenuWithCategory
+            data={megaMenuData}
+            handlerText={"shovel & rake"}
+          />
+        </li>
+        <li>
+          <NavLink
+            to="fertilizer"
+            className="middle-underline block h-full w-full text-nowrap text-sm font-semibold uppercase text-gray-700 after:mt-0 hover:text-green-500 hover:after:w-full"
+          >
+            Fertilizer
+          </NavLink>
+        </li>
+
+        <NavLink
+          to="blog"
+          className="middle-underline block h-full w-full text-nowrap text-sm font-semibold uppercase text-gray-700 after:mt-0 hover:text-green-500 hover:after:w-full"
+        >
+          Blog
+        </NavLink>
+        <li></li>
+      </ul>
+    </nav>
+  );
+}
+
+function CateogroyList({ categoryItem, Items }) {
+  return (
+    <List className="min-w-0 bg-white hover:bg-none">
+      {/* Cateogroy  */}
+      <ListItem className="rounded-none border-b-2 border-gray-200 p-1 capitalize text-gray-900 hover:bg-white hover:text-green-500">
+        {categoryItem}
+      </ListItem>
+      {/* Rest of Items  */}
+      {Items?.map((el) => (
+        <ListItem
+          className="p-1 text-sm capitalize text-gray-700 hover:bg-white hover:text-lima-500"
+          key={el}
+        >
+          {el}
+        </ListItem>
+      ))}
+    </List>
+  );
+}
+
+CateogroyList.propTypes = {
+  categoryItem: propTypes.string,
+  Items: propTypes.array,
+};
+
+function NavListMenuWithCategory({ data, handlerText }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const renderItems = data.map(({ categoryItem, Items }, key) => (
+    <li key={key}>
+      <Menu className="flex items-center gap-4 rounded-md border-2 border-green-500">
+        <CateogroyList
+          categoryItem={categoryItem}
+          Items={Items}
+        ></CateogroyList>
+      </Menu>
+    </li>
+  ));
+
+  return (
+    <>
+      <Menu
+        open={isMenuOpen}
+        handler={setIsMenuOpen}
+        offset={{ mainAxis: 20 }}
+        placement="bottom-start"
+        allowHover={true}
+      >
+        <MenuHandler>
+          <div className="font-medium">
+            <div
+              selected={isMenuOpen || isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+              className="middle-underline block h-full w-full cursor-pointer text-nowrap text-sm font-semibold uppercase text-gray-700 after:mt-0 hover:text-green-500 hover:after:w-full"
+            >
+              {handlerText}
+            </div>
+          </div>
+        </MenuHandler>
+
+        <MenuList className="left-0 hidden max-w-screen-xl rounded-lg border-b-2 border-b-lima-500 py-3 lg:block">
+          <ul className="grid grid-cols-3 gap-y-2 outline-none outline-0">
+            {renderItems}
+          </ul>
+        </MenuList>
+      </Menu>
+      <div className="block lg:hidden">
+        <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
+      </div>
+    </>
+  );
+}
+
+NavListMenuWithCategory.propTypes = {
+  data: propTypes.array,
+  handlerText: propTypes.string,
+};

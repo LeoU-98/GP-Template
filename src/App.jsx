@@ -78,18 +78,6 @@ const router = createBrowserRouter([
         ],
       },
 
-      // {
-      //   path: "gloves",
-      //   element: <Products />,
-      // },
-      // {
-      //   path: "hand-trowel",
-      //   element: <Products />,
-      // },
-      // {
-      //   path: "pruning-shears",
-      //   element: <Products />,
-      // },
       {
         path: "product",
         element: <Products />,

@@ -34,7 +34,8 @@ function Account() {
 
       <div className="flex gap-3 px-2">
         {/* aside  */}
-        <div className="hidden h-fit w-96 overflow-hidden lg:block lg:max-w-[215px] 2xl:max-w-[300px]">
+        <div className="hidden h-fit flex-shrink-0 flex-grow-0 basis-[22%] overflow-hidden lg:block">
+          {/* <div className="hidden h-fit w-96 overflow-hidden lg:block lg:max-w-[215px] 2xl:max-w-[300px]"> */}
           <Link to="offer">
             <img src={image1} className="w-full duration-300 hover:scale-110" />
           </Link>
@@ -45,15 +46,16 @@ function Account() {
             <TabsHeader
               className=""
               indicatorProps={{
-                className:
-                  "bg-transparent border-2   border-b-2 border-green-500 pb-[56px] z-30 border-b-white shadow-none   rounded-lg rounded-b-none ",
+                className: "      shadow-none   rounded-lg ",
+                // "bg-transparent border-2   border-b-2 border-green-500 pb-[56px] z-30 border-b-white shadow-none   rounded-lg rounded-b-none ",
               }}
             >
               {data.map(({ label, value }) => (
                 <Tab
                   key={value}
                   value={value}
-                  className="border-b-2 border-lima-500 bg-white py-4 text-gray-900 hover:text-lima-500"
+                  className="py-5 text-gray-900 hover:text-lima-500"
+                  // className="border-b-2 border-lima-500 bg-white py-4 text-gray-900 hover:text-lima-500"
                 >
                   {label}
                 </Tab>

@@ -1,3 +1,6 @@
+/////////////////////////////////////
+///   product images
+
 import product1 from "../images/products/brown-bear-cushion.jpg";
 import product2 from "../images/products/brown-bear-notebook.jpg";
 import product3 from "../images/products/today-is-a-good-day-framed-poster.jpg";
@@ -9,6 +12,13 @@ import product8 from "../images/products/mountain-fox-cushion.jpg";
 import product9 from "../images/products/mug-the-adventure-begins.jpg";
 import product10 from "../images/products/the-adventure-begins-framed-poster.jpg";
 import product11 from "../images/products/the-best-is-yet-to-come-framed-poster.jpg";
+/////////////////////////////////////
+///   blog posters
+
+import poster1 from "../images/blogitem/consectetur-adipiscing.jpg";
+import poster2 from "../images/blogitem/lorem-ipsum-dolo.jpg";
+import poster3 from "../images/blogitem/lorem-ipsum-dolor-sit-amet.jpg";
+import poster4 from "../images/blogitem/lorem-ipsum-dolor.jpg";
 
 export const productData = [
   {
@@ -314,6 +324,86 @@ export const megaMenuData = [
       {
         itemTitle: "topiary",
         itemLink: "topiary",
+      },
+    ],
+  },
+];
+
+export const blogItemData = [
+  {
+    blogImage: poster4,
+    blogAuthor: "LeoU",
+    blogComments: 98,
+    blogReviews: 9999,
+    blogHeading: "Lorem Ipsum Dolor",
+    blogDesc:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type an",
+    blogLink: "blog link",
+  },
+  {
+    blogImage: poster3,
+    blogAuthor: "Deez",
+    blogComments: 99,
+    blogReviews: 10000,
+    blogHeading: "Lorem Ipsum Dolor",
+    blogDesc:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type an",
+    blogLink: "blog link",
+  },
+  {
+    blogImage: poster2,
+    blogAuthor: "Nuts",
+    blogComments: 55,
+    blogReviews: 2500,
+    blogHeading: "Lorem Ipsum Dolor",
+    blogDesc:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type an",
+    blogLink: "blog link",
+  },
+  {
+    blogImage: poster1,
+    blogAuthor: "Woah Woah",
+    blogComments: 89,
+    blogReviews: 5000,
+    blogHeading: "Lorem Ipsum Dolor",
+    blogDesc:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type an",
+    blogLink: "blog link",
+  },
+];
+
+export const asideData = [
+  {
+    sectionTitle: "Popular Articles",
+    sectionItems: [
+      {
+        itemImage: poster1,
+        itemTitle: "Lorem Ipsum Dolo",
+        itemDate: "Apr 21, 2022",
+        itemLink: "Lorem Ipsum Dolo",
+      },
+      {
+        itemImage: poster2,
+        itemTitle: "Lorem Ipsum Dolo",
+        itemDate: "Apr 21, 2022",
+        itemLink: "Lorem Ipsum Dolo",
+      },
+    ],
+  },
+  {
+    sectionTitle: "Recent Articles",
+    sectionItems: [
+      {
+        itemImage: poster3,
+        itemTitle: "Lorem Ipsum Dolo",
+        itemDate: "Apr 21, 2022",
+        itemLink: "Lorem Ipsum Dolo",
+      },
+      {
+        itemImage: poster4,
+        itemTitle: "Lorem Ipsum Dolo",
+        itemDate: "Apr 21, 2022",
+        itemLink: "Lorem Ipsum Dolo",
       },
     ],
   },

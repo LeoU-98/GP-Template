@@ -14,7 +14,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import NewsLetter from "./home/NewsLetter";
 import Testimonial from "./home/Testimonial";
-import Blog from "./home/Blog";
+import Blog from "./Blog/Blog";
 import { MegaMenuDefault } from "./ui/NavSample";
 import Footer from "./ui/Footer";
 
@@ -82,10 +82,13 @@ const router = createBrowserRouter([
           },
         ],
       },
-
       {
         path: "product",
         element: <Products />,
+      },
+      {
+        path: "blog",
+        element: <Blog />,
       },
     ],
   },

@@ -73,7 +73,7 @@ function SamplePrevArrow(props) {
 
 ///////////////////////
 
-function Blog() {
+function BlogPreview() {
   const settings = {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -109,7 +109,7 @@ function Blog() {
       <div className="">
         <Slider {...settings}>
           {blogPreviewData.map((el, key) => (
-            <BlogItem data={el} key={key} />
+            <BlogPreviewItem data={el} key={key} />
           ))}
         </Slider>
       </div>
@@ -117,9 +117,9 @@ function Blog() {
   );
 }
 
-export default Blog;
+export default BlogPreview;
 
-function BlogItem({ data }) {
+function BlogPreviewItem({ data }) {
   const { image, title, descryption, date } = data;
 
   return (
@@ -143,6 +143,6 @@ function BlogItem({ data }) {
   );
 }
 
-BlogItem.propTypes = {
+BlogPreviewItem.propTypes = {
   data: propTypes.object,
 };

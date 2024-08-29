@@ -1,5 +1,5 @@
 import BigPromo from "./BigPromo";
-import Blog from "./Blog";
+import BlogPreview from "../Blog/BlogPreview";
 import CategoryCarousel from "./CategoryCarousel";
 import DealOfTheDay from "./DealOfTheDay";
 import FeaturePromo from "./FeaturePromo";
@@ -34,7 +34,7 @@ function Home() {
           <Testimonial />
         </div>
       </div>
-      <Blog />
+      <BlogPreview />
     </>
   );
 }

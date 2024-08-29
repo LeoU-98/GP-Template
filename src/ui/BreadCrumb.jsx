@@ -26,7 +26,7 @@ function BreadCrumb() {
   const currentItem = currentLocation.replaceAll("-", " ").split("/").pop();
 
   return (
-    <div className="">
+    <div className="mx-2">
       {/* <div className="px-2"> */}
       <div className="my-4 items-center justify-between border-[1px] border-gray-300 bg-white px-5 py-2 sm:flex">
         <div className="text-center">

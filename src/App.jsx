@@ -17,7 +17,7 @@ import Testimonial from "./home/Testimonial";
 import Blog from "./home/Blog";
 import { MegaMenuDefault } from "./ui/NavSample";
 import Footer from "./ui/Footer";
-import CartPreview from "./header/CartPreview";
+
 import Account from "./register/Account";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
@@ -26,6 +26,7 @@ import FilterBy from "./shop/FilterBy";
 import Products from "./shop/Products";
 import BreadCrumb from "./ui/BreadCrumb";
 import Pagination from "./ui/Pagination";
+import CartView from "./cart/CartView";
 
 const router = createBrowserRouter([
   {
@@ -39,6 +40,10 @@ const router = createBrowserRouter([
       {
         path: "account",
         element: <Account />,
+      },
+      {
+        path: "cartview",
+        element: <CartView />,
       },
 
       {

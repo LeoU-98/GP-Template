@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logo from "../images/logo.jpg";
-import CartPreview from "./CartPreview";
+import CartPreview from "../cart/CartPreview";
 
 function HeaderMid() {
   const [isCartPreviewOpen, setIsCartPreviewOpen] = useState(false);

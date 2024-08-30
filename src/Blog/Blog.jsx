@@ -11,6 +11,7 @@ import {
 ///        fake data
 
 import { asideData, blogItemData } from "../utils/StaticData";
+
 import { useState } from "react";
 import {
   Collapse,
@@ -52,7 +53,6 @@ function BlogItem({ data }) {
 
   return (
     <article className="h-fit bg-white">
-      {/* <article className="mx-4 h-fit bg-white lg:mx-0"> */}
       <div className="">
         <img src={blogImage} alt="blog image" className="w-full" />
       </div>

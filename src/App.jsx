@@ -27,6 +27,7 @@ import Products from "./shop/Products";
 import BreadCrumb from "./ui/BreadCrumb";
 import Pagination from "./ui/Pagination";
 import CartView from "./cart/CartView";
+import ProductItemModal from "./ui/ProductItemModal";
 
 const router = createBrowserRouter([
   {
@@ -105,8 +106,9 @@ function App() {
       {/* <Account /> */}
       {/* <SimpleSlider /> */}
       {/* <BreadCrumb /> */}
+      <ProductItemModal />
 
-      <RouterProvider router={router} />
+      {/* <RouterProvider router={router} /> */}
 
       {/* <Pagination /> */}
       {/* <Products /> */}

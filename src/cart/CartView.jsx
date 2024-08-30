@@ -65,19 +65,7 @@ function ItemAction() {
   return (
     <div className="flex items-center justify-center gap-4">
       {/* count */}
-      <div className="flex items-center justify-between gap-2">
-        <button className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white hover:bg-black">
-          <MinusIcon className="size-4" />
-        </button>
-        <input
-          type="text"
-          defaultValue={50}
-          className="w-8 text-center outline-none focus:ring-1 focus:ring-lima-500"
-        />
-        <button className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white hover:bg-black">
-          <PlusIcon className="size-4" />
-        </button>
-      </div>
+      <ItemCounter />
       {/* total price */}
       <div className="flex items-center justify-center">{`$${150}`}</div>
       {/* delete btn  */}
@@ -125,6 +113,24 @@ function ActionAside() {
           </button>
         </form>
       </div>
+    </div>
+  );
+}
+
+function ItemCounter() {
+  return (
+    <div className="flex items-center justify-between gap-2">
+      <button className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white hover:bg-black">
+        <MinusIcon className="size-4" />
+      </button>
+      <input
+        type="text"
+        defaultValue={50}
+        className="w-8 text-center outline-none focus:ring-1 focus:ring-lima-500"
+      />
+      <button className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white hover:bg-black">
+        <PlusIcon className="size-4" />
+      </button>
     </div>
   );
 }

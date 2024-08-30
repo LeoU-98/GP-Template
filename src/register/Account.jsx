@@ -47,7 +47,6 @@ function Account() {
               className=""
               indicatorProps={{
                 className: "      shadow-none   rounded-lg ",
-                // "bg-transparent border-2   border-b-2 border-green-500 pb-[56px] z-30 border-b-white shadow-none   rounded-lg rounded-b-none ",
               }}
             >
               {data.map(({ label, value }) => (
@@ -55,7 +54,6 @@ function Account() {
                   key={value}
                   value={value}
                   className="py-5 text-gray-900 hover:text-lima-500"
-                  // className="border-b-2 border-lima-500 bg-white py-4 text-gray-900 hover:text-lima-500"
                 >
                   {label}
                 </Tab>

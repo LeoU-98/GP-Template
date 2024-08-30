@@ -15,7 +15,7 @@ function CartPreview({ open }) {
       className={`absolute right-0 top-full z-50 w-80 origin-top scale-y-0 rounded-md border-b-2 border-lima-500 bg-white px-5 duration-500 ${open ? "scale-y-100 py-5" : ""} `}
     >
       {/* items  */}
-      <ul className="max-h-72 min-h-6 overflow-y-auto p-2">
+      <ul className="max-h-72 min-h-6 overflow-y-auto scroll-smooth p-2">
         <CartPreviewItem />
         <CartPreviewItem />
         <CartPreviewItem />
@@ -66,9 +66,7 @@ function CartPreviewItem() {
             <span className="ml-2 text-lima-500">$20.15</span>
           </div>
         </div>
-
         {/* delete btn  */}
-
         <div className="justify-self-end">
           <button>
             <XMarkIcon className="size-5 duration-300 hover:stroke-red-400" />

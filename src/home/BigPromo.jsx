@@ -20,7 +20,7 @@ function BigPromo() {
         </h3>
         <a
           href="# shop now"
-          className="md bg-lima-500 rounded-full px-3 py-2 text-xs uppercase text-white duration-300 hover:bg-black sm:px-4 lg:px-8 lg:py-3"
+          className="flex items-center justify-center rounded-full bg-lima-500 px-3 py-2 text-xs uppercase text-white duration-300 hover:bg-black sm:px-4 lg:px-8 lg:py-3"
         >
           shop now
         </a>

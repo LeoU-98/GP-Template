@@ -8,7 +8,7 @@ import propTypes from "prop-types";
 ////     fake data      ////
 ////////////////////////////
 
-import { productData } from "../utils/ProductsData";
+import { productData } from "../utils/StaticData";
 
 /////////////////////////////
 

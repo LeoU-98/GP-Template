@@ -4,7 +4,7 @@ import ProductItem from "./ProductItem";
 ////     fake data      ////
 ////////////////////////////
 
-import { productData } from "../utils/ProductsData";
+import { productData } from "../utils/StaticData";
 import FilterBy from "./FilterBy";
 import BreadCrumb from "../ui/BreadCrumb";
 import Pagination from "../ui/Pagination";

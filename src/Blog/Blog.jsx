@@ -10,16 +10,24 @@ import {
 ////////////////////////////////////
 ///        fake data
 
-import { asideData, blogItemData } from "../utils/ProductsData";
+import { asideData, blogItemData } from "../utils/StaticData";
+import { useState } from "react";
+import {
+  Collapse,
+  ListItem,
+  Menu,
+  MenuHandler,
+} from "@material-tailwind/react";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 function Blog() {
   return (
     <div className="container mx-auto mb-20">
       <BreadCrumb />
       {/* all posts  */}
-      <div className="flex gap-4 bg-red-500">
+      <div className="flex flex-col-reverse gap-4 xl:flex-row">
         <BlogAside />
-        <div className="grid basis-4/5 grid-cols-2 gap-4 bg-green-500">
+        <div className="mx-4 grid basis-3/4 grid-cols-1 gap-4 lg:grid-cols-2 xl:mx-0 2xl:basis-4/5">
           {blogItemData.map((el, key) => (
             <BlogItem data={el} key={key} />
           ))}
@@ -44,7 +52,8 @@ function BlogItem({ data }) {
 
   return (
     <article className="h-fit bg-white">
-      <div className="max-w-[550px]">
+      {/* <article className="mx-4 h-fit bg-white lg:mx-0"> */}
+      <div className="">
         <img src={blogImage} alt="blog image" className="w-full" />
       </div>
       <div className="p-7 py-5 pb-0">
@@ -73,13 +82,9 @@ function BlogItem({ data }) {
   );
 }
 
-BlogItem.propTypes = {
-  data: propTypes.object,
-};
-
 function BlogItemReview({ blogAuthor, blogComments, blogReviews }) {
   return (
-    <ul className="flex items-center gap-2 fill-gray-700 text-sm text-gray-700">
+    <ul className="flex items-center gap-2 fill-gray-700 text-xs text-gray-700 sm:text-sm">
       <li className="flex items-center justify-between gap-1">
         <UserIcon className="inline-block size-4" />
         <span>{blogAuthor}</span>
@@ -96,19 +101,23 @@ function BlogItemReview({ blogAuthor, blogComments, blogReviews }) {
   );
 }
 
-BlogItemReview.propTypes = {
-  blogAuthor: propTypes.object,
-  blogComments: propTypes.number,
-  blogReviews: propTypes.number,
-};
+////////////////////////////////////
+///        Blog Aside
 
 function BlogAside() {
   return (
-    <div className="flex basis-1/5 flex-col gap-4">
-      {asideData.map((el, key) => (
-        <BlogAsideSection data={el} key={key} />
-      ))}
-    </div>
+    <>
+      <div className="hidden basis-1/4 flex-col gap-4 xl:flex 2xl:basis-1/5">
+        {asideData.map((el, key) => (
+          <BlogAsideSection data={el} key={key} />
+        ))}
+      </div>
+      <div className="mx-4 flex flex-col gap-4 xl:hidden">
+        {asideData.map((el, key) => (
+          <MobileDropDown data={el} key={key} />
+        ))}
+      </div>
+    </>
   );
 }
 
@@ -117,7 +126,7 @@ function BlogAsideSection({ data }) {
 
   return (
     <div className="border-[1px] border-gray-300 bg-white">
-      <h2 className="border-b-[1px] border-gray-300 px-4 py-3 text-lg capitalize">
+      <h2 className="border-b-[1px] border-gray-300 px-4 py-3 uppercase">
         {sectionTitle}
       </h2>
       <ul className="flex flex-col gap-3 p-4">
@@ -129,10 +138,47 @@ function BlogAsideSection({ data }) {
   );
 }
 
-function BlogAsideSectionItem({ data }) {
+function MobileDropDown({ data }) {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { sectionTitle, sectionItems } = data;
+  const renderItems = sectionItems.map((el, key) => (
+    <BlogAsideSectionItem data={el} key={key} dropdown={true} />
+  ));
+
+  return (
+    <div className="border-[1px] border-gray-300 bg-white">
+      <Menu>
+        <MenuHandler>
+          <div className="border-b-[1px] border-gray-300">
+            <ListItem
+              className="flex items-center justify-between gap-2 rounded-none bg-transparent p-2 font-medium text-gray-900 transition-none hover:bg-transparent focus:bg-transparent active:bg-transparent"
+              selected={isMobileMenuOpen}
+              onClick={() => setIsMobileMenuOpen((cur) => !cur)}
+            >
+              <span className="uppercase">{sectionTitle}</span>
+              <ChevronDownIcon
+                strokeWidth={2.5}
+                className={`block h-3 w-3 transition-transform xl:hidden ${
+                  isMobileMenuOpen ? "rotate-180" : ""
+                }`}
+              />
+            </ListItem>
+          </div>
+        </MenuHandler>
+      </Menu>
+      <div className="xl:hidden">
+        <Collapse open={isMobileMenuOpen} className="flex flex-col gap-3 px-3">
+          {renderItems}
+        </Collapse>
+      </div>
+    </div>
+  );
+}
+
+function BlogAsideSectionItem({ data, dropdown }) {
   const { itemImage, itemTitle, itemDate, itemLink } = data;
   return (
-    <li className="flex">
+    <li className={`flex ${dropdown ? "first:pt-3 last:pb-3" : ""}`}>
       <img src={itemImage} alt="post image" className="size-16" />
       <div className="ml-3">
         <a
@@ -147,9 +193,24 @@ function BlogAsideSectionItem({ data }) {
   );
 }
 
+////////////////////////////////////
+///        propTypes
+
 BlogAsideSectionItem.propTypes = {
   data: propTypes.object,
+  dropdown: propTypes.bool,
 };
 BlogAsideSection.propTypes = {
+  data: propTypes.object,
+};
+MobileDropDown.propTypes = {
+  data: propTypes.object,
+};
+BlogItemReview.propTypes = {
+  blogAuthor: propTypes.object,
+  blogComments: propTypes.number,
+  blogReviews: propTypes.number,
+};
+BlogItem.propTypes = {
   data: propTypes.object,
 };

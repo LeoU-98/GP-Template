@@ -3,39 +3,11 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import propTypes from "prop-types";
 
-import image1 from "../images/blog/consectetur-adipiscing.jpg";
-import image2 from "../images/blog/lorem-ipsum-dolo.jpg";
-import image3 from "../images/blog/lorem-ipsum-dolor.jpg";
-
 //////////////////////////
 ///    fake data       ///
 //////////////////////////
 
-const blogPreviewData = [
-  {
-    image: image1,
-    title: "Consectetur Adipiscing",
-    descryption:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ...",
-
-    date: "21 April 2022",
-  },
-  {
-    image: image2,
-    title: "Lorem Ipsum Dolo",
-    descryption:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ...",
-
-    date: "24 June 2022",
-  },
-  {
-    image: image3,
-    title: "The Standard Lorem Ipsum",
-    descryption:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ...",
-    date: "8 December 2022",
-  },
-];
+import { blogPreviewData } from "../utils/StaticData";
 
 ///////////////////////
 SamplePrevArrow.propTypes = {

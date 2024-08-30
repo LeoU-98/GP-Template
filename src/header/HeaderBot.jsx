@@ -19,7 +19,7 @@ import {
 //    Fake Data        //
 /////////////////////////
 
-import { megaMenuData } from "../utils/ProductsData";
+import { megaMenuData } from "../utils/StaticData";
 import { NavLink } from "react-router-dom";
 
 //////////////////////////////////////////////////

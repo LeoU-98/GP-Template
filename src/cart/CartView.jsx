@@ -3,7 +3,7 @@ import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 
 /////////////////////////////////////////////////
 ////         Fade Data
-import { productData } from "../utils/ProductsData";
+import { productData } from "../utils/StaticData";
 
 /////////////////////////////////////////////////
 ////         Components

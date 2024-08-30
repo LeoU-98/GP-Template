@@ -117,7 +117,7 @@ MobileDropDown.propTypes = {
 function RenderContactItems({ data }) {
   return data.map(({ svg, text }, key) => (
     <div className="mb-3 flex items-center gap-2" key={key}>
-      <div className="bg-lima-500 size-8 overflow-hidden rounded-full p-2">
+      <div className="size-8 overflow-hidden rounded-full bg-lima-500 p-2">
         {svg}
       </div>
       <div>
@@ -184,7 +184,7 @@ function Footer() {
     <div className="bg-white">
       <div className="container relative mx-auto px-4 lg:py-8">
         <div className="relative py-8 lg:py-12">
-          <div className="bg-lima-500 absolute -top-5 left-1/2 size-10 -translate-x-1/2 rounded-full p-[6px] lg:-top-14 lg:size-12">
+          <div className="absolute -top-5 left-1/2 size-10 -translate-x-1/2 rounded-full bg-lima-500 p-[6px] lg:-top-14 lg:size-12">
             <a href="#" className="scroll-smooth">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -200,7 +200,7 @@ function Footer() {
               <div>
                 <img src={logo} alt="logo" />
               </div>
-              <p className="mt-5 text-[#777]">
+              <p className="mt-5 text-gray-700">
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
                 eiusmod tempor incididunt lorem consectetur tempor incididunt
                 enim ad minim simply random text. It has pieceveniam.

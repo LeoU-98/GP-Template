@@ -28,6 +28,7 @@ import BreadCrumb from "./ui/BreadCrumb";
 import Pagination from "./ui/Pagination";
 import CartView from "./cart/CartView";
 import ProductItemModal from "./ui/ProductItemModal";
+import ProductItemView from "./ui/ProductItemView";
 
 const router = createBrowserRouter([
   {
@@ -90,6 +91,10 @@ const router = createBrowserRouter([
       {
         path: "blog",
         element: <Blog />,
+      },
+      {
+        path: "itemview",
+        element: <ProductItemView />,
       },
     ],
   },

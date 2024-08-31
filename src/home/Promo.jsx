@@ -61,7 +61,7 @@ function PromoItemCenter() {
         <p className="capitalize sm:text-2xl lg:text-xl">
           buy garden equipments
         </p>
-        <a className="cursor-pointer rounded-3xl bg-white px-2 py-[6px] text-xs uppercase text-black duration-300 hover:bg-black hover:text-white sm:px-3 sm:text-base lg:mt-4 lg:px-4 lg:py-2 lg:text-xs xl:text-sm">
+        <a className="cursor-pointer rounded-3xl bg-white px-2 py-[6px] text-xs uppercase !leading-[normal] text-black duration-300 hover:bg-black hover:text-white sm:px-3 sm:text-base lg:mt-4 lg:px-4 lg:py-2 lg:text-xs xl:text-sm">
           shop now
         </a>
       </div>

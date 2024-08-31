@@ -10,13 +10,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
-function ProductItemModal() {
-  return <ProductModalButton />;
-}
-
-export default ProductItemModal;
-
-function ProductModalButton() {
+function ProductItemModal({ className }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
 
@@ -24,7 +18,7 @@ function ProductModalButton() {
     <>
       <button
         onClick={handleOpen}
-        className="flex items-center rounded-e-full bg-lima-500 px-2 pr-5 text-xs capitalize text-white duration-300 hover:bg-black"
+        className={`flex items-center rounded-e-full bg-lima-500 px-2 pr-5 text-xs capitalize text-white duration-300 hover:bg-black ${className}`}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -45,8 +39,8 @@ function ProductModalButton() {
         className="w-auto max-w-none sm:w-auto sm:max-w-none md:w-auto md:max-w-none lg:w-auto lg:max-w-none xl:w-auto xl:max-w-none 2xl:w-auto 2xl:max-w-none"
       >
         <div className="">
-          <div className="relative flex items-center justify-end gap-1 bg-black px-2 py-3 text-sm capitalize text-white sm:text-base">
-            <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center text-nowrap">
+          <div className="relative flex items-center justify-end bg-black px-2 py-3 text-sm capitalize text-white sm:text-base">
+            <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-1 text-nowrap">
               <CheckIcon className="relative bottom-[1px] size-5" />
               <span className="">Product is added successfully </span>
             </div>
@@ -61,6 +55,55 @@ function ProductModalButton() {
     </>
   );
 }
+
+export default ProductItemModal;
+
+// function ProductModalButton({ className }) {
+//   const [open, setOpen] = useState(false);
+//   const handleOpen = () => setOpen(!open);
+
+//   return (
+//     <>
+//       <button
+//         onClick={handleOpen}
+//         className={`flex items-center rounded-e-full bg-lima-500 px-2 pr-5 text-xs capitalize text-white duration-300 hover:bg-black ${className}`}
+//         // className="flex items-center rounded-e-full bg-lima-500 px-2 pr-5 text-xs capitalize text-white duration-300 hover:bg-black"
+//       >
+//         <svg
+//           xmlns="http://www.w3.org/2000/svg"
+//           viewBox="0 0 256 256"
+//           className="hidden size-4 fill-white sm:inline-block sm:size-7 sm:px-1"
+//         >
+//           <path d="M236,69.4A16.13,16.13,0,0,0,223.92,64H176a48,48,0,0,0-96,0H32.08a16.13,16.13,0,0,0-12,5.4,16,16,0,0,0-3.92,12.48l14.26,120a16,16,0,0,0,16,14.12H209.67a16,16,0,0,0,16-14.12l14.26-120A16,16,0,0,0,236,69.4ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32Zm81.76,168a.13.13,0,0,1-.09,0H46.25L32.08,80H224Z"></path>
+//         </svg>
+//         <span className="text-nowrap">add to cart</span>
+//       </button>
+//       <Dialog
+//         open={open}
+//         handler={handleOpen}
+//         animate={{
+//           mount: { scale: 1, y: 0 },
+//           unmount: { scale: 0.9, y: -100 },
+//         }}
+//         className="w-auto max-w-none sm:w-auto sm:max-w-none md:w-auto md:max-w-none lg:w-auto lg:max-w-none xl:w-auto xl:max-w-none 2xl:w-auto 2xl:max-w-none"
+//       >
+//         <div className="">
+//           <div className="relative flex items-center justify-end bg-black px-2 py-3 text-sm capitalize text-white sm:text-base">
+//             <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center gap-1 text-nowrap">
+//               <CheckIcon className="relative bottom-[1px] size-5" />
+//               <span className="">Product is added successfully </span>
+//             </div>
+//             <XMarkIcon
+//               className="size-5 cursor-pointer duration-500 hover:rotate-180"
+//               onClick={handleOpen}
+//             />
+//           </div>
+//           <ItemPreview handleOpen={handleOpen} />
+//         </div>
+//       </Dialog>
+//     </>
+//   );
+// }
 
 function ItemPreview({ handleOpen }) {
   return (
@@ -160,4 +203,7 @@ function ItemCounter() {
 
 ItemPreview.propTypes = {
   handleOpen: propTypes.func,
+};
+ProductItemModal.propTypes = {
+  className: propTypes.string,
 };

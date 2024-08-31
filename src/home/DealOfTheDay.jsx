@@ -2,6 +2,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import propTypes from "prop-types";
+import AddToCartButton from "../ui/AddToCartButton";
 
 import shovel from "../images/products/the-adventure-begins-framed-poster.jpg";
 import redBear from "../images/products/brown-bear-notebook1.jpg";
@@ -105,7 +106,7 @@ function DealOfTheDayItem() {
         </p>
         {/* add to cart & other  */}
         <div className="flex justify-start gap-4 border-t-2 border-gray-300 pt-3">
-          <CartButton />
+          <AddToCartButton />
           <a
             href="add to wish list"
             className="rounded-full bg-mercury-100 p-2"
@@ -169,46 +170,6 @@ function ItemTimer() {
           <span className="block text-xs text-mercury-600">Secs</span>
         </div>
       </div>
-    </div>
-  );
-}
-
-function CartButton() {
-  return (
-    <div className="flex">
-      <div className="flex rounded-s-full bg-mercury-100 ps-3 sm:py-1">
-        <input
-          type="text"
-          defaultValue="1"
-          className="w-[24px] bg-mercury-100"
-        />
-        <div className="flex w-fit flex-col justify-between gap-1 px-1 sm:px-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-3"
-            viewBox="0 0 256 256"
-          >
-            <path d="M213.66,165.66a8,8,0,0,1-11.32,0L128,91.31,53.66,165.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,213.66,165.66Z"></path>
-          </svg>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="size-3"
-            viewBox="0 0 256 256"
-          >
-            <path d="M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z"></path>
-          </svg>
-        </div>
-      </div>
-      <button className="flex items-center text-nowrap rounded-e-full bg-lima-500 px-3 pe-4 text-xs capitalize text-white duration-300 hover:bg-black">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-          className="hidden size-4 fill-white sm:size-7 sm:px-1 2xl:inline-block"
-        >
-          <path d="M236,69.4A16.13,16.13,0,0,0,223.92,64H176a48,48,0,0,0-96,0H32.08a16.13,16.13,0,0,0-12,5.4,16,16,0,0,0-3.92,12.48l14.26,120a16,16,0,0,0,16,14.12H209.67a16,16,0,0,0,16-14.12l14.26-120A16,16,0,0,0,236,69.4ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32Zm81.76,168a.13.13,0,0,1-.09,0H46.25L32.08,80H224Z"></path>
-        </svg>
-        <span>add to cart</span>
-      </button>
     </div>
   );
 }

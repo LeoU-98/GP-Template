@@ -15,9 +15,7 @@ import propTypes from "prop-types";
 ////////////////////////////////////////////////
 
 /////////////////////////////
-Items.propTypes = {
-  currentItems: propTypes.number,
-};
+
 function Items({ currentItems }) {
   return (
     <>
@@ -91,35 +89,6 @@ function Products() {
 
 export default Products;
 
-// Products.propTypes = {
-//   itemsPerPage: propTypes.number,
-// };
-
-////////////////////////////////////////////////////
-
-// function Products() {
-//   return (
-//     <div className="products-helper container mx-auto mb-20 px-3 md:pl-0">
-//       <BreadCrumb />
-//       <div className="flex gap-3">
-//         <div className="hidden lg:block">
-//           <FilterBy />
-//         </div>
-//         <div>
-//           <div className="grid grid-cols-2 gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4">
-//             {productData.map((el, key) => (
-//               <ProductItem data={el} key={key} />
-//             ))}
-//           </div>
-//           <Pagination />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Products;
-
-//////////////////////////////////////////
-//// This Section is Already Repeated ///
-////////////////////////////////////////
+Items.propTypes = {
+  currentItems: propTypes.number,
+};

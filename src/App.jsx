@@ -106,9 +106,9 @@ function App() {
       {/* <Account /> */}
       {/* <SimpleSlider /> */}
       {/* <BreadCrumb /> */}
-      <ProductItemModal />
+      {/* <ProductItemModal /> */}
 
-      {/* <RouterProvider router={router} /> */}
+      <RouterProvider router={router} />
 
       {/* <Pagination /> */}
       {/* <Products /> */}

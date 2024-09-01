@@ -7,7 +7,6 @@ import ProductItem from "./ProductItem";
 import { productData } from "../utils/StaticData";
 import FilterBy from "./FilterBy";
 import BreadCrumb from "../ui/BreadCrumb";
-import Pagination from "../ui/Pagination";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import propTypes from "prop-types";
@@ -62,7 +61,6 @@ function Products() {
           </div>
 
           <div className="">
-            {/* <Pagination /> */}
             <ReactPaginate
               pageRangeDisplayed={5}
               breakLabel="..."

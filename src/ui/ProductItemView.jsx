@@ -1,18 +1,22 @@
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
 import BreadCrumb from "./BreadCrumb";
 import ProductItemModal from "./ProductItemModal";
+import Slider from "react-slick";
+import ImageZoom from "react-image-zooom";
+
+//////////////////////////////////////////////////////////
 
 function ProductItemView() {
   return (
     <div className="container mx-auto mb-16">
       <BreadCrumb />
 
-      <div className="flex">
-        <ProductItemImagePreview />
+      <div className="flex flex-col items-center bg-white p-4 lg:flex-row">
+        <ProductImagePreview />
         <ProductItemDetails />
       </div>
 
-      <div></div>
+      {/* <DetailsTab /> */}
     </div>
   );
 }
@@ -22,8 +26,45 @@ export default ProductItemView;
 //////////////////////////////////////////
 ///          Product Image Preview
 
-function ProductItemImagePreview() {
-  return <div className="size-[650px] basis-1/2 bg-blue-500">Item Preview</div>;
+function ProductImagePreview() {
+  const baseUrl = "./images/itemMagnifier/";
+  const settings = {
+    customPaging: function (i) {
+      return (
+        <div className="size-12 cursor-pointer border-[1px] border-gray-300 hover:border-lima-500 sm:size-20 lg:size-16 xl:size-20">
+          <img src={`${baseUrl}mm${i + 1}.jpg`} />
+        </div>
+      );
+    },
+    dots: true,
+    dotsClass: "!flex items-center gap-2 mt-6 justify-center",
+    infinite: false,
+    speed: 500,
+    arrows: false,
+    swipe: false,
+  };
+
+  return (
+    <div className="w-full basis-1/2 lg:w-2/5">
+      <Slider {...settings}>
+        <div className="!flex items-center justify-center border-[1px] border-gray-300">
+          <ImageZoom src={baseUrl + "mm1.jpg"} />
+        </div>
+        <div className="!flex items-center justify-center border-[1px] border-gray-300">
+          <ImageZoom src={baseUrl + "mm2.jpg"} />
+        </div>
+        <div className="!flex items-center justify-center border-[1px] border-gray-300">
+          <ImageZoom src={baseUrl + "mm3.jpg"} />
+        </div>
+        <div className="!flex items-center justify-center border-[1px] border-gray-300">
+          <ImageZoom src={baseUrl + "mm4.jpg"} />
+        </div>
+        <div className="!flex items-center justify-center border-[1px] border-gray-300">
+          <ImageZoom src={baseUrl + "mm5.jpg"} />
+        </div>
+      </Slider>
+    </div>
+  );
 }
 
 //////////////////////////////////////////
@@ -31,7 +72,7 @@ function ProductItemImagePreview() {
 
 function ProductItemDetails() {
   return (
-    <div className="basis-1/2 bg-white px-2">
+    <div className="w-full bg-white p-4 lg:w-3/5">
       <div className="">
         <h3 className="mb-5 text-xl">Axe</h3>
         <div className="mb-2">
@@ -63,7 +104,10 @@ function ProductItemDetails() {
         <span>Quantity</span>
         <div className="mb-4 flex items-center gap-3">
           <ItemCounter />
-          <ProductItemModal className="justify-center rounded-full px-2 py-1" />
+          <ProductItemModal
+            className="justify-center rounded-full px-3 py-2 !pr-3 sm:py-1"
+            svgClassName="!inline-block mr-1 "
+          />
         </div>
         <div className="mb-4">
           <a
@@ -79,7 +123,7 @@ function ProductItemDetails() {
                 <path d="M178,40c-20.65,0-38.73,8.88-50,23.89C116.73,48.88,98.65,40,78,40a62.07,62.07,0,0,0-62,62c0,70,103.79,126.66,108.21,129a8,8,0,0,0,7.58,0C136.21,228.66,240,172,240,102A62.07,62.07,0,0,0,178,40ZM128,214.8C109.74,204.16,32,155.69,32,102A46.06,46.06,0,0,1,78,56c19.45,0,35.78,10.36,42.6,27a8,8,0,0,0,14.8,0c6.82-16.67,23.15-27,42.6-27a46.06,46.06,0,0,1,46,46C224,155.61,146.24,204.15,128,214.8Z"></path>
               </svg>
             </span>
-            <span className="inline-block text-sm text-gray-700">
+            <span className="inline-block text-sm text-gray-700 hover:text-lima-500">
               Add to Wishlist
             </span>
           </a>
@@ -166,4 +210,11 @@ function ItemCounter() {
       </button>
     </div>
   );
+}
+
+//////////////////////////////////////////
+///          Details Tab
+
+function DetailsTab() {
+  return <div></div>;
 }

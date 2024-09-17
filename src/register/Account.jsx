@@ -27,7 +27,7 @@ function Account() {
   ];
 
   return (
-    <div className="container mx-auto mb-8">
+    <main className="container mx-auto mb-8">
       <div>
         <BreadCrumb />
       </div>
@@ -77,7 +77,7 @@ function Account() {
           </Tabs>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

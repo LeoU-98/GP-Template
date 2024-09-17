@@ -3,13 +3,13 @@ import propTypes from "prop-types";
 import { useState } from "react";
 import { Dialog } from "@material-tailwind/react";
 import {
-  MinusIcon,
-  PlusIcon,
   CheckIcon,
   XMarkIcon,
+  ShoppingBagIcon,
 } from "@heroicons/react/24/outline";
+import ItemCounter from "./ItemCounter";
 
-function ProductItemModal({ className, svgClassName }) {
+function ProductItemModal({ svgClassName }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
 
@@ -17,16 +17,12 @@ function ProductItemModal({ className, svgClassName }) {
     <>
       <button
         onClick={handleOpen}
-        className={`flex items-center rounded-e-full bg-lima-500 px-2 pr-5 text-xs capitalize text-white duration-300 hover:bg-black ${className}`}
+        className={`flex items-center gap-1 rounded-full bg-lima-500 px-4 py-[6px] text-xs capitalize text-white duration-300 hover:bg-black`}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 256 256"
-          className={`hidden size-4 fill-white sm:inline-block sm:size-7 sm:px-1 ${svgClassName}`}
-        >
-          <path d="M236,69.4A16.13,16.13,0,0,0,223.92,64H176a48,48,0,0,0-96,0H32.08a16.13,16.13,0,0,0-12,5.4,16,16,0,0,0-3.92,12.48l14.26,120a16,16,0,0,0,16,14.12H209.67a16,16,0,0,0,16-14.12l14.26-120A16,16,0,0,0,236,69.4ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32Zm81.76,168a.13.13,0,0,1-.09,0H46.25L32.08,80H224Z"></path>
-        </svg>
-        <span className="text-nowrap">add to cart</span>
+        <ShoppingBagIcon className={`size-6 text-white ${svgClassName}`} />
+        <span className="relative top-[1px] flex items-center justify-center">
+          add to cart
+        </span>
       </button>
       <Dialog
         open={open}
@@ -131,24 +127,6 @@ function Specification() {
       <span>
         Diemension: <span>40x60 cm</span>
       </span>
-    </div>
-  );
-}
-
-function ItemCounter() {
-  return (
-    <div className="flex w-fit items-center justify-between gap-1">
-      <button className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white hover:bg-black">
-        <MinusIcon className="size-4" />
-      </button>
-      <input
-        type="text"
-        defaultValue={50}
-        className="w-8 text-center outline-none focus:ring-1 focus:ring-lima-500"
-      />
-      <button className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white hover:bg-black">
-        <PlusIcon className="size-4" />
-      </button>
     </div>
   );
 }

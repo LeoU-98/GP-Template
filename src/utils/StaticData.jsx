@@ -28,6 +28,104 @@ import previewPoster2 from "../images/blog/lorem-ipsum-dolo.jpg";
 import previewPoster3 from "../images/blog/lorem-ipsum-dolor.jpg";
 
 /////////////////////////////////////
+///   users profile pic
+
+import profile1 from "../images/testimonial/sample-1.jpg";
+import profile2 from "../images/testimonial/sample-2.jpg";
+import profile3 from "../images/testimonial/sample-3.jpg";
+
+/////////////////////////////////////
+///  intro banners
+
+import banner1 from "../images/banner-1.jpg";
+import banner2 from "../images/banner-2.jpg";
+
+/////////////////////////////////////
+///  category carousel thumbs
+
+import thumb1 from "../images/category_carousel/thumb-1.png";
+import thumb2 from "../images/category_carousel/thumb-2.png";
+import thumb3 from "../images/category_carousel/thumb-3.png";
+import thumb4 from "../images/category_carousel/thumb-4.png";
+import thumb5 from "../images/category_carousel/thumb-5.png";
+import thumb6 from "../images/category_carousel/thumb-6.png";
+
+/////////////////////////////////////
+///  there promo images
+
+import promo1 from "../images/promo/promo-banner-1.jpg";
+import promo2 from "../images/promo/promo-banner-2.jpg";
+import promo3 from "../images/promo/promo-banner-3.jpg";
+
+/////////////////////////////////////
+///   there promo data
+export const promoData = [
+  {
+    promoTitle: "gardening tools",
+    promoDesc: "flat 50% discount",
+    promoLink: "#things to buy",
+    promoImg: promo1,
+  },
+  {
+    promoTitle: "best quality products",
+    promoDesc: "buy garden equipments",
+    promoLink: "#things to buy",
+    promoImg: promo2,
+  },
+  {
+    promoTitle: "gardening tools",
+    promoDesc: "flat 50% discount",
+    promoLink: "#things to buy",
+    promoImg: promo3,
+  },
+];
+/////////////////////////////////////
+///   category carousel data
+export const CategoryCarouselArray = [
+  {
+    image: thumb1,
+    text: "Plants",
+  },
+  {
+    image: thumb2,
+    text: "Shovel & Rake",
+  },
+  {
+    image: thumb3,
+    text: "Fertilizer",
+  },
+  {
+    image: thumb4,
+    text: "Seed Bag",
+  },
+  {
+    image: thumb5,
+    text: "Watering Can",
+  },
+  {
+    image: thumb6,
+    text: "Accessories",
+  },
+];
+/////////////////////////////////////
+///   intro data
+
+export const introData = [
+  {
+    promoTitle: "Best Quality Gardenning Tools",
+    promoDesc: "Discount Up To 40% Off",
+    promoBanner: banner1,
+    promoLink: "link1",
+  },
+  {
+    promoTitle: "Latest Garden Flowring Plants",
+    promoDesc: "Shipping & Cash on Delivery Avaliable",
+    promoBanner: banner2,
+    promoLink: "link2",
+  },
+];
+
+/////////////////////////////////////
 ///   products data
 
 export const productData = [
@@ -557,5 +655,32 @@ export const blogPreviewData = [
     descryption:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the ...",
     date: "8 December 2022",
+  },
+];
+
+/////////////////////////////////////
+///   Testimonial Data
+
+export const testimonialData = [
+  {
+    image: profile1,
+    name: "sandra",
+    role: "customer",
+    feedback:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  },
+  {
+    image: profile2,
+    name: "scarlet",
+    role: "engineer",
+    feedback:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  },
+  {
+    image: profile3,
+    name: "mai",
+    role: "farmer",
+    feedback:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
   },
 ];

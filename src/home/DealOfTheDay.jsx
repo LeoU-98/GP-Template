@@ -2,44 +2,12 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import propTypes from "prop-types";
-import AddToCartButton from "../ui/AddToCartButton";
+import AddToCartButton from "../shop/AddToCartButton";
+import StarRating from "../ui/StarRating";
+import { useEffect, useState } from "react";
 
 import shovel from "../images/products/the-adventure-begins-framed-poster.jpg";
 import redBear from "../images/products/brown-bear-notebook1.jpg";
-
-SamplePrevArrow.propTypes = {
-  className: propTypes.string,
-  style: propTypes.object,
-  onClick: propTypes.func,
-};
-
-SampleNextArrow.propTypes = {
-  className: propTypes.string,
-  style: propTypes.object,
-  onClick: propTypes.func,
-};
-
-function SampleNextArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} -top-8 right-[2%] size-7 rounded-full bg-white opacity-100 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟩'] lg:size-9`}
-      style={{ ...style }}
-      onClick={onClick}
-    />
-  );
-}
-
-function SamplePrevArrow(props) {
-  const { className, style, onClick } = props;
-  return (
-    <div
-      className={`${className} -top-8 left-[78%] size-7 rounded-full bg-white before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟨'] sm:left-[86%] md:left-[89%] lg:left-[90%] lg:size-9 xl:left-[91%]`}
-      style={{ ...style }}
-      onClick={onClick}
-    />
-  );
-}
 
 function DealOfTheDay() {
   const settings = {
@@ -50,6 +18,7 @@ function DealOfTheDay() {
     arrows: false,
     speed: 500,
     slidesToShow: 2,
+    className: "deal-of-the-day",
     responsive: [
       {
         breakpoint: 720,
@@ -64,16 +33,14 @@ function DealOfTheDay() {
   };
 
   return (
-    <div className="container mx-auto px-2 py-10 lg:px-0">
-      <h2 className="relative mb-5 ml-2 w-fit border-b-[1px] border-b-gray-400 pb-1 text-xl capitalize text-[#222] after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:mx-auto after:block after:h-[3px] after:w-16 after:bg-lima-400 sm:mx-auto md:text-2xl lg:text-3xl xl:mb-8">
+    <div className="container mx-auto px-4 py-10">
+      <h2 className="relative mb-6 ml-2 w-fit border-b-[1px] border-b-gray-400 pb-1 text-xl capitalize text-[#222] after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:mx-auto after:block after:h-[3px] after:w-16 after:bg-lima-400 sm:mx-auto md:text-2xl lg:text-3xl">
         deal of the day
       </h2>
-      <div className="">
-        <Slider {...settings}>
-          <DealOfTheDayItem />
-          <DealOfTheDayItem />
-        </Slider>
-      </div>
+      <Slider {...settings}>
+        <DealOfTheDayItem />
+        <DealOfTheDayItem />
+      </Slider>
     </div>
   );
 }
@@ -99,7 +66,7 @@ function DealOfTheDayItem() {
             $43.50
           </span>
         </p>
-        <div className="">⭐⭐⭐⭐⭐</div>
+        <StarRating NumOfStars={3} />
         <p className="max-w-80">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod...
@@ -140,36 +107,90 @@ function DealOfTheDayItem() {
 //////////////////////////////////
 
 function ItemTimer() {
+  const [time, setTime] = useState(5 * 24 * 60 * 60);
+  useEffect(() => {
+    let timer = setInterval(() => {
+      if (time === 0) clearInterval(timer);
+      setTime(time - 1);
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [time]);
+
   return (
     <div className="flex w-fit justify-between gap-2">
       {/* days */}
       <div className="rounded-full bg-mercury-100">
         <div className="flex size-14 flex-col items-center justify-center">
-          <span className="block text-gray-900">60</span>
+          <span className="block text-gray-900">
+            {`${Math.floor(time / (60 * 60 * 24))}`}
+          </span>
+
           <span className="block text-xs text-mercury-600">Days</span>
         </div>
       </div>
       {/* hours */}
       <div className="rounded-full bg-mercury-100">
         <div className="flex size-14 flex-col items-center justify-center">
-          <span className="block text-gray-900">43</span>
+          <span className="block text-gray-900">
+            {`${Math.floor((time / (60 * 60)) % 60)}`}
+          </span>
           <span className="block text-xs text-mercury-600">Hours</span>
         </div>
       </div>
       {/* mins */}
       <div className="rounded-full bg-mercury-100">
         <div className="flex size-14 flex-col items-center justify-center">
-          <span className="block text-gray-900">23</span>
+          <span className="block text-gray-900">
+            {`${Math.floor((time / 60) % 60)}`.padStart(2, 0)}
+          </span>
+
           <span className="block text-xs text-mercury-600">Mins</span>
         </div>
       </div>
       {/* secs */}
       <div className="rounded-full bg-mercury-100">
         <div className="flex size-14 flex-col items-center justify-center">
-          <span className="block text-gray-900">13</span>
+          <span className="block text-gray-900">
+            {`${time % 60}`.padStart(2, 0)}
+          </span>
           <span className="block text-xs text-mercury-600">Secs</span>
         </div>
       </div>
     </div>
   );
 }
+
+function SampleNextArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} -top-8 right-[2%] size-7 rounded-full bg-white opacity-100 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟩'] lg:size-9`}
+      style={{ ...style }}
+      onClick={onClick}
+    />
+  );
+}
+
+function SamplePrevArrow(props) {
+  const { className, style, onClick } = props;
+  return (
+    <div
+      className={`${className} -top-8 left-[78%] size-7 rounded-full bg-white before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟨'] sm:left-[86%] md:left-[89%] lg:left-[90%] lg:size-9 xl:left-[91%]`}
+      style={{ ...style }}
+      onClick={onClick}
+    />
+  );
+}
+
+SamplePrevArrow.propTypes = {
+  className: propTypes.string,
+  style: propTypes.object,
+  onClick: propTypes.func,
+};
+
+SampleNextArrow.propTypes = {
+  className: propTypes.string,
+  style: propTypes.object,
+  onClick: propTypes.func,
+};

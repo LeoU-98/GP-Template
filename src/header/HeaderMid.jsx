@@ -7,7 +7,7 @@ function HeaderMid() {
 
   return (
     <div className="bg-white">
-      <div className="container mx-auto flex justify-between">
+      <div className="container mx-auto flex justify-between sm:px-3">
         {/* left */}
         <div className="hidden w-fit items-center gap-2 text-sm md:flex">
           <div className="w-fit rounded-full bg-lima-500 p-2">
@@ -54,8 +54,6 @@ function HeaderMid() {
           <CartPreview open={isCartPreviewOpen} />
         </div>
       </div>
-
-      {/* {isCartPreviewOpen ?  : null} */}
     </div>
   );
 }

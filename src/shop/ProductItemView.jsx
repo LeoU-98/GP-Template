@@ -1,8 +1,9 @@
 import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
-import BreadCrumb from "./BreadCrumb";
+import BreadCrumb from "../ui/BreadCrumb";
 import ProductItemModal from "./ProductItemModal";
 import Slider from "react-slick";
 import ImageZoom from "react-image-zooom";
+import StarRating from "../ui/StarRating";
 
 //////////////////////////////////////////////////////////
 
@@ -76,7 +77,7 @@ function ProductItemDetails() {
       <div className="">
         <h3 className="mb-5 text-xl">Axe</h3>
         <div className="mb-2">
-          <span className="">⭐⭐⭐⭐⭐</span>
+          <StarRating NumOfStars={5} starSize="20px" />
           <a className="text-gray-700 hover:text-lima-500">1 reviews </a>
           <a className="text-gray-700 hover:text-lima-500">Write a review</a>
         </div>
@@ -104,10 +105,7 @@ function ProductItemDetails() {
         <span>Quantity</span>
         <div className="mb-4 flex items-center gap-3">
           <ItemCounter />
-          <ProductItemModal
-            className="justify-center rounded-full px-3 py-2 !pr-3 sm:py-1"
-            svgClassName="!inline-block mr-1 "
-          />
+          <ProductItemModal />
         </div>
         <div className="mb-4">
           <a

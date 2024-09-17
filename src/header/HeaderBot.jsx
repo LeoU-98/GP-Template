@@ -4,25 +4,13 @@ import {
   Collapse,
   IconButton,
   List,
-  ListItem,
   Menu,
   MenuHandler,
   MenuList,
 } from "@material-tailwind/react";
-import {
-  Bars3Icon,
-  ChevronDownIcon,
-  XMarkIcon,
-} from "@heroicons/react/24/outline";
-
-/////////////////////////
-//    Fake Data        //
-/////////////////////////
-
-import { megaMenuData } from "../utils/StaticData";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
-
-//////////////////////////////////////////////////
+import { megaMenuData } from "../utils/StaticData";
 
 function HeaderBot() {
   const [openNav, setOpenNav] = useState(false);
@@ -36,7 +24,7 @@ function HeaderBot() {
 
   return (
     <div className="border-t-2 border-t-gray-200 bg-white">
-      <div className="container mx-auto">
+      <div className="container mx-auto px-2 sm:px-3">
         <div className="grid-rows[auto_auto] grid max-w-none grid-cols-[auto_auto] justify-between rounded-none px-0 py-1 shadow-none">
           {/* left top */}
           <div className="col-span-1 col-start-1 row-span-1 row-start-1">
@@ -50,9 +38,9 @@ function HeaderBot() {
                 onClick={() => setOpenNav(!openNav)}
               >
                 {openNav ? (
-                  <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+                  <XMarkIcon className="size-6" strokeWidth={2} />
                 ) : (
-                  <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+                  <Bars3Icon className="size-6" strokeWidth={2} />
                 )}
               </IconButton>
             </div>
@@ -66,16 +54,16 @@ function HeaderBot() {
           </div>
 
           {/* right top */}
-          <div className="col-span-1 col-start-2 row-span-1 row-start-1 max-h-12 self-center pr-3">
+          <div className="col-span-1 col-start-2 row-span-1 row-start-1 max-h-12 self-center">
             <div className="flex items-center text-xs">
-              <form>
+              <form className="flex items-center">
                 <input
                   type="text"
                   placeholder="Search..."
                   className="rounded-l-full bg-gray-100 px-4 py-[10px] text-gray-800 focus:outline-none focus:ring-1 focus:ring-inset focus:ring-lima-500 md:w-64"
                 />
                 <button className="rounded-r-full bg-lima-500 p-[10px] uppercase text-white duration-300 hover:bg-black">
-                  search
+                  <span className="relative top-[1px]">search</span>
                 </button>
               </form>
             </div>
@@ -95,7 +83,7 @@ export default HeaderBot;
 function NavList() {
   return (
     <nav>
-      <ul className="flex min-w-[240px] flex-col gap-4 px-4 py-4 font-sans text-base font-normal text-blue-gray-700 lg:flex-row lg:items-center lg:gap-10 lg:px-0 lg:py-2">
+      <ul className="flex min-w-[240px] flex-col gap-4 px-4 py-4 font-sans text-base font-normal text-blue-gray-700 lg:flex-row lg:items-center lg:gap-7 lg:px-0 lg:py-2">
         <li>
           <NavLink
             to="/"
@@ -136,7 +124,7 @@ function CateogroyList({ data }) {
   const { categoryItem, categoryLink, items } = data;
 
   return (
-    <List className="min-w-0 bg-white hover:bg-none">
+    <List className="min-w-0 bg-white pt-0 hover:bg-none">
       <ul>
         {/* Cateogroy  */}
         <li className="mb-1">
@@ -162,10 +150,6 @@ function CateogroyList({ data }) {
     </List>
   );
 }
-
-CateogroyList.propTypes = {
-  data: propTypes.object,
-};
 
 function NestedNavMenu({ data, handlerText }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -199,7 +183,6 @@ function NestedNavMenu({ data, handlerText }) {
             </div>
           </div>
         </MenuHandler>
-
         <MenuList className="left-0 hidden max-w-screen-xl rounded-lg border-b-2 border-b-lima-500 py-3 lg:block">
           <div className="grid grid-cols-3 gap-y-2 outline-none outline-0">
             {renderItems}
@@ -216,4 +199,8 @@ function NestedNavMenu({ data, handlerText }) {
 NestedNavMenu.propTypes = {
   data: propTypes.array,
   handlerText: propTypes.string,
+};
+
+CateogroyList.propTypes = {
+  data: propTypes.object,
 };

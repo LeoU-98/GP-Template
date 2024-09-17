@@ -4,11 +4,11 @@ import HeaderTop from "./HeaderTop";
 
 function Header() {
   return (
-    <div>
+    <header>
       <HeaderTop />
       <HeaderMid />
       <HeaderBot />
-    </div>
+    </header>
   );
 }
 

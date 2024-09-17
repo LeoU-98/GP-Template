@@ -1,41 +1,8 @@
+import propTypes from "prop-types";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import propTypes from "prop-types";
-import thumb1 from "../images/category_carousel/thumb-1.png";
-import thumb2 from "../images/category_carousel/thumb-2.png";
-import thumb3 from "../images/category_carousel/thumb-3.png";
-import thumb4 from "../images/category_carousel/thumb-4.png";
-import thumb5 from "../images/category_carousel/thumb-5.png";
-import thumb6 from "../images/category_carousel/thumb-6.png";
-
 import Slider from "react-slick";
-
-const CategoryCarouselArray = [
-  {
-    image: thumb1,
-    text: "Plants",
-  },
-  {
-    image: thumb2,
-    text: "Shovel & Rake",
-  },
-  {
-    image: thumb3,
-    text: "Fertilizer",
-  },
-  {
-    image: thumb4,
-    text: "Seed Bag",
-  },
-  {
-    image: thumb5,
-    text: "Watering Can",
-  },
-  {
-    image: thumb6,
-    text: "Accessories",
-  },
-];
+import { CategoryCarouselArray } from "../utils/StaticData";
 
 export default function CategoryCarousel() {
   var settings = {
@@ -44,6 +11,7 @@ export default function CategoryCarousel() {
     arrows: false,
     speed: 500,
     slidesToShow: 6,
+    className: "category-carousel",
     responsive: [
       {
         breakpoint: 1280,
@@ -69,13 +37,13 @@ export default function CategoryCarousel() {
     ],
   };
   return (
-    <div className="max-w-screen-2xl px-2 py-16">
+    <section className="container mx-auto px-4 py-16">
       <Slider {...settings}>
         {CategoryCarouselArray.map((item, index) => (
           <CategoryItem data={item} key={index} />
         ))}
       </Slider>
-    </div>
+    </section>
   );
 }
 

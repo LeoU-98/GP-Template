@@ -2,7 +2,6 @@ import { useState } from "react";
 import product1 from "../images/products/brown-bear-printed-sweater.jpg";
 import product2 from "../images/products/hummingbird-cushion.jpg";
 import propTypes from "prop-types";
-
 import { XMarkIcon } from "@heroicons/react/24/outline";
 
 CartPreview.propTypes = {
@@ -15,7 +14,7 @@ function CartPreview({ open }) {
       className={`absolute right-0 top-full z-50 w-80 origin-top scale-y-0 rounded-md border-b-2 border-lima-500 bg-white px-5 duration-500 ${open ? "scale-y-100 py-5" : ""} `}
     >
       {/* items  */}
-      <ul className="max-h-72 min-h-6 overflow-y-auto scroll-smooth p-2">
+      <ul className="cart max-h-72 min-h-6 overflow-y-auto scroll-smooth p-2">
         <CartPreviewItem />
         <CartPreviewItem />
         <CartPreviewItem />

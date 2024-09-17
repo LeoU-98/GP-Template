@@ -25,7 +25,7 @@ function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} -top-8 right-[2%] size-7 rounded-full bg-white opacity-100 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟩'] hover:bg-lima-500 lg:size-9`}
+      className={`${className} -top-10 right-[2%] size-7 rounded-full bg-white opacity-100 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟩'] hover:bg-lima-500 lg:size-9`}
       style={{ ...style }}
       onClick={onClick}
     />
@@ -36,7 +36,7 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} -top-8 left-[78%] size-7 rounded-full bg-white before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟨'] hover:bg-lima-500 sm:left-[86%] md:left-[89%] lg:left-[90%] lg:size-9 xl:left-[91%]`}
+      className={`${className} -top-10 left-[78%] size-7 rounded-full bg-white before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟨'] hover:bg-lima-500 sm:left-[86%] md:left-[89%] lg:left-[90%] lg:size-9 xl:left-[91%]`}
       style={{ ...style }}
       onClick={onClick}
     />
@@ -53,6 +53,7 @@ function BlogPreview() {
     dots: false,
     speed: 500,
     slidesToShow: 3,
+    className: "blog-review",
     responsive: [
       {
         breakpoint: 960,
@@ -74,17 +75,16 @@ function BlogPreview() {
   };
 
   return (
-    <div className="container mx-auto px-2 py-14 sm:px-0 md:px-0">
-      <h2 className="relative mb-5 ml-[6px] w-fit border-b-[1px] border-b-gray-400 pb-1 text-xl font-[500] capitalize text-gray-900 after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:mx-auto after:block after:h-[3px] after:w-16 after:bg-lima-400 sm:mx-auto md:text-2xl lg:text-3xl">
+    <div className="container mx-auto px-4 py-14">
+      <h2 className="relative mb-6 ml-[6px] w-fit border-b-[1px] border-b-gray-400 pb-1 text-xl font-[500] capitalize text-gray-900 after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:mx-auto after:block after:h-[3px] after:w-16 after:bg-lima-400 sm:mx-auto md:text-2xl lg:text-3xl">
         from our blog
       </h2>
-      <div className="">
-        <Slider {...settings}>
-          {blogPreviewData.map((el, key) => (
-            <BlogPreviewItem data={el} key={key} />
-          ))}
-        </Slider>
-      </div>
+
+      <Slider {...settings}>
+        {blogPreviewData.map((el, key) => (
+          <BlogPreviewItem data={el} key={key} />
+        ))}
+      </Slider>
     </div>
   );
 }
@@ -95,12 +95,12 @@ function BlogPreviewItem({ data }) {
   const { image, title, descryption, date } = data;
 
   return (
-    <div className="overflow-hidden rounded-md bg-white">
+    <div className="mx-[5px] overflow-hidden rounded-md bg-white">
       <div className="w-full">
         <img src={image} className="w-full" alt="blog image" />
       </div>
       <div className="mx-auto px-4 pb-8 pt-4">
-        <h3 className="text-xl font-bold">{title}</h3>
+        <h3 className="line-clamp-1 text-xl font-bold">{title}</h3>
         <p className="mt-2 border-b-2 border-b-mercury-200 pb-5 text-gray-700">
           {descryption}
         </p>

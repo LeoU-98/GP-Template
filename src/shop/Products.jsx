@@ -1,5 +1,3 @@
-import ProductItem from "./ProductItem";
-
 ////////////////////////////
 ////     fake data      ////
 ////////////////////////////
@@ -10,6 +8,7 @@ import BreadCrumb from "../ui/BreadCrumb";
 import { useState } from "react";
 import ReactPaginate from "react-paginate";
 import propTypes from "prop-types";
+import ProductItem from "./ProductItem";
 
 ////////////////////////////////////////////////
 
@@ -49,7 +48,7 @@ function Products() {
     setItemOffset(newOffset);
   };
   return (
-    <div className="products-helper container mx-auto mb-20 px-3 md:pl-0">
+    <main className="products-helper container mx-auto mb-20 px-3 md:pl-0">
       <BreadCrumb />
       <div className="flex gap-3">
         <div className="hidden lg:block">
@@ -81,7 +80,7 @@ function Products() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
 

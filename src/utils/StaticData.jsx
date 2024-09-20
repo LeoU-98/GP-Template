@@ -56,6 +56,7 @@ import thumb6 from "../images/category_carousel/thumb-6.png";
 import promo1 from "../images/promo/promo-banner-1.jpg";
 import promo2 from "../images/promo/promo-banner-2.jpg";
 import promo3 from "../images/promo/promo-banner-3.jpg";
+import { CheckCircleIcon } from "@heroicons/react/24/outline";
 
 /////////////////////////////////////
 ///   there promo data
@@ -682,5 +683,65 @@ export const testimonialData = [
     role: "farmer",
     feedback:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  },
+];
+
+////////////////////////////////////////
+//////////  Merchant Features
+
+export const merchantFeatures = [
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "AI Features To Enhance Your Bussiness ",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Ability To Expand Your Business By Reaching More Clients",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Access to a large customer base",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Tools for promoting products within the marketplace",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Unlimited product listings",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Basic analytics on sales and traffic",
+  },
+];
+
+////////////////////////////////////////
+//////////  Customer Features
+
+export const customerFeatures = [
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "AI Features To Enhance Your Bussiness ",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Ability To Expand Your Business By Reaching More Clients",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Access to a large customer base",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Tools for promoting products within the marketplace",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Unlimited product listings",
+  },
+  {
+    featureIcon: <CheckCircleIcon className="size-5" />,
+    featureDesc: "Basic analytics on sales and traffic",
   },
 ];

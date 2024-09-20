@@ -18,107 +18,31 @@ html {
   opacity: 1;
 }
 
-/***** Slide Right *****/
-
-.slide-right {
-  animation: 6s slide-right infinite;
-}
-
-@keyframes slide-right {
-  0%,
-  20% {
-    visibility: hidden;
-  }
-
-  20%,
-  50% {
-    margin-left: -100%;
-  }
-
-  50%,
-  100% {
-    visibility: visible;
-    margin-left: 0%;
-  }
-}
-
-/***** Slide Left *****/
-
-.slide-left {
-  animation: 3s slide-left;
-}
-
-@keyframes slide-left {
-  from {
-    margin-left: 100%;
-  }
-  to {
-    margin-left: 0%;
-  }
-}
-
-/***** FadeIn Underline *****/
-
-.fade-in {
-  animation: fadeIn ease 3s;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeInLeft {
-  0% {
-    transform: translate3d(-100%, 0, 0);
-    opacity: 0;
-  }
-  100% {
-    transform: translateZ(0);
-    opacity: 1;
-  }
-}
-
-.animate-fadeInLeft {
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft;
-  -webkit-animation-delay: 1.2s;
-  animation-delay: 1.2s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  -webkit-animation-duration: 1.2s;
-  animation-duration: 1.2s;
-}
-
 @layer components {
   .newsletter-background {
     background-image: url(/src/images/newsletter-bg.jpg);
   }
-}
 
-.middle-underline::after {
-  content: "";
-  height: 2px;
-  background-color: #6bb42f;
-  display: block;
-  width: 0;
-  transition-duration: 300ms;
-  margin: 0 auto;
-  margin-top: 5px;
-}
+  .middle-underline::after {
+    content: "";
+    height: 2px;
+    background-color: #6bb42f;
+    display: block;
+    width: 0;
+    transition-duration: 300ms;
+    margin: 0 auto;
+    margin-top: 5px;
+  }
 
-.left-underline::after {
-  content: "";
-  height: 2px;
-  background-color: #6bb42f;
-  display: block;
-  width: 0;
-  transition-duration: 500ms;
-  margin-top: 5px;
+  .left-underline::after {
+    content: "";
+    height: 2px;
+    background-color: #6bb42f;
+    display: block;
+    width: 0;
+    transition-duration: 500ms;
+    margin-top: 5px;
+  }
 }
 
 /*////////////////////////*/
@@ -145,8 +69,6 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #adadad;
 }
-
-/* //////////////////////////// */
 
 /*/////////////////////////////*/
 /*       Rounded-CheckBox      */
@@ -200,4 +122,9 @@ input[type="checkbox"]:checked + label span:first-of-type {
   display: flex;
   gap: 10px;
   justify-content: space-between;
+}
+
+.product-image-preview .slick-track {
+  display: flex;
+  gap: 1px;
 }

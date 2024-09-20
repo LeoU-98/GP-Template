@@ -19,10 +19,7 @@ function HeaderTop() {
             <Menu placement="bottom-start">
               <MenuHandler>
                 <span className="block cursor-pointer p-1 text-gray-600 hover:text-gray-900 focus:text-gray-900">
-                  <UserIcon
-                    // strokeWidth={1.5}
-                    className="relative bottom-[2px] mr-1 inline-block size-4"
-                  />
+                  <UserIcon className="relative bottom-[2px] mr-1 inline-block size-4" />
                   <span className="text-sm">My Account</span>
                   <ChevronDownIcon
                     strokeWidth={2.5}
@@ -34,7 +31,7 @@ function HeaderTop() {
                 <ul className="outline-none">
                   <li className="group cursor-pointer outline-none">
                     <NavLink
-                      to="account"
+                      to="account/signin"
                       className="block px-0 py-1 outline-none group-hover:text-lima-500"
                     >
                       Sign in
@@ -42,7 +39,7 @@ function HeaderTop() {
                   </li>
                   <li className="group cursor-pointer outline-none">
                     <NavLink
-                      to="account"
+                      to="account/register"
                       className="block px-0 py-1 outline-none group-hover:text-lima-500"
                     >
                       Register

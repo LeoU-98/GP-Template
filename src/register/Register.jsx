@@ -24,7 +24,7 @@ export default function Register() {
 
   return (
     <Tabs id="custom-animation" value={"customer"}>
-      <TabsHeader>
+      <TabsHeader className="p-0">
         {data.map(({ label, value }) => (
           <Tab
             key={value}
@@ -43,7 +43,7 @@ export default function Register() {
         }}
       >
         {data.map(({ value, form }) => (
-          <TabPanel key={value} value={value}>
+          <TabPanel key={value} value={value} className="mt-4 p-0">
             {form}
           </TabPanel>
         ))}

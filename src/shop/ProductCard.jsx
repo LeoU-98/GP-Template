@@ -2,7 +2,7 @@ import propTypes from "prop-types";
 import AddToCartButton from "./AddToCartButton";
 import StarRating from "../ui/StarRating";
 
-export default function ProductItem({ data, className }) {
+export default function ProductCard({ data, className }) {
   const { productImage, productName, discountPrice, originalPrice } = data;
   return (
     <div
@@ -41,7 +41,7 @@ export default function ProductItem({ data, className }) {
     </div>
   );
 }
-ProductItem.propTypes = {
+ProductCard.propTypes = {
   data: propTypes.object,
   className: propTypes.string,
 };

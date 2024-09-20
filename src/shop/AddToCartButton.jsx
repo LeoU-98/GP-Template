@@ -1,5 +1,5 @@
-import ProductItemModal from "./ProductItemModal";
+import ProductModal from "./ProductModal";
 
 export default function AddToCartButton() {
-  return <ProductItemModal />;
+  return <ProductModal />;
 }

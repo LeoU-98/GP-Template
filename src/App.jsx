@@ -4,8 +4,11 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./ui/AppLayout";
 import Home from "./home/Home";
 import Products from "./shop/Products";
-import ProductItemView from "./shop/ProductItemView";
 import CartView from "./cart/CartView";
+import Register from "./register/Register";
+import SignIn from "./register/SignIn";
+import ProductView from "./shop/ProductView";
+import BlogView from "./Blog/BlogView";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,16 @@ const router = createBrowserRouter([
       {
         path: "account",
         element: <Account />,
+        children: [
+          {
+            path: "register",
+            element: <Register />,
+          },
+          {
+            path: "signin",
+            element: <SignIn />,
+          },
+        ],
       },
       {
         path: "cartview",
@@ -71,7 +84,12 @@ const router = createBrowserRouter([
       },
       {
         path: "itemview",
-        element: <ProductItemView />,
+        element: <ProductView />,
+      },
+
+      {
+        path: "blogView",
+        element: <BlogView />,
       },
     ],
   },

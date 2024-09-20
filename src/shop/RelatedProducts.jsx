@@ -5,7 +5,7 @@ import propTypes from "prop-types";
 import ProductCard from "../shop/ProductCard";
 import { productData } from "../utils/StaticData";
 
-function SpecialProducts() {
+export default function RelatedProducts() {
   const settings = {
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -59,7 +59,7 @@ function SpecialProducts() {
       <div className="container mx-auto px-4">
         <div>
           <h2 className="relative mb-6 ml-3 w-fit border-b-[1px] border-b-gray-400 pb-1 text-xl capitalize text-gray-900 after:absolute after:bottom-[-2px] after:left-0 after:right-0 after:mx-auto after:block after:h-[3px] after:w-16 after:bg-lima-400 sm:mx-auto md:text-2xl lg:text-3xl">
-            special products
+            related products
           </h2>
         </div>
 
@@ -77,8 +77,6 @@ function SpecialProducts() {
   );
 }
 
-export default SpecialProducts;
-
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
   return (
@@ -94,7 +92,7 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} -top-10 left-[79%] size-7 rounded-full bg-white duration-500 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟨'] hover:bg-lima-400 sm:left-[85%] md:left-[87%] lg:left-[89%] lg:size-9 xl:left-[90%]`}
+      className={`${className} -top-10 left-[78%] size-7 rounded-full bg-white duration-500 before:absolute before:left-1/2 before:top-1/2 before:z-10 before:-translate-x-1/2 before:translate-y-[-62%] before:rounded-full before:text-xs before:font-bold before:text-black before:content-['⟨'] hover:bg-lima-400 sm:left-[85%] md:left-[87%] lg:left-[89%] lg:size-9 xl:left-[90%]`}
       style={{ ...style }}
       onClick={onClick}
     />

@@ -19,7 +19,7 @@ export default function ItemCounter() {
     <div className="flex items-center justify-between gap-2">
       <button
         onClick={handleDec}
-        className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white hover:bg-black"
+        className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white duration-300 hover:bg-black"
       >
         <MinusIcon className="size-4" />
       </button>
@@ -31,7 +31,7 @@ export default function ItemCounter() {
       />
       <button
         onClick={handleInc}
-        className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white hover:bg-black"
+        className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white duration-300 hover:bg-black"
       >
         <PlusIcon className="size-4" />
       </button>

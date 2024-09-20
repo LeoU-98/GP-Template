@@ -9,7 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import ItemCounter from "./ItemCounter";
 
-function ProductItemModal({ svgClassName }) {
+function ProductModal({ svgClassName }) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(!open);
 
@@ -51,7 +51,7 @@ function ProductItemModal({ svgClassName }) {
   );
 }
 
-export default ProductItemModal;
+export default ProductModal;
 
 function ItemPreview({ handleOpen }) {
   return (
@@ -134,7 +134,7 @@ function Specification() {
 ItemPreview.propTypes = {
   handleOpen: propTypes.func,
 };
-ProductItemModal.propTypes = {
+ProductModal.propTypes = {
   className: propTypes.string,
   svgClassName: propTypes.string,
 };

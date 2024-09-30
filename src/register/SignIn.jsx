@@ -1,40 +1,11 @@
+import SignInForm from "./SignInForm";
+import SignInGreeting from "./SignInGreeting";
+
 function SignIn() {
   return (
-    <div className="">
-      <form>
-        <div className="mx-auto flex flex-col gap-5 bg-white px-5 py-6">
-          <label>
-            Email
-            <input
-              type="text"
-              name="email"
-              className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
-            />
-          </label>
-          <label>
-            Password
-            <div className="flex">
-              <input
-                type="text"
-                name="password"
-                className="block w-full border-b-2 px-3 py-[6px] outline-none focus:border-b-lima-500"
-              />
-              <button className="rounded-sm bg-lima-500 p-1 text-white hover:bg-black">
-                show
-              </button>
-            </div>
-          </label>
-          <button className="rounded-xl bg-lima-500 py-4 text-sm font-semibold uppercase text-white hover:bg-black">
-            sign in
-          </button>
-
-          <div>
-            <a className="cursor-pointer capitalize text-gray-900 hover:text-lima-500">
-              forget your password?
-            </a>
-          </div>
-        </div>
-      </form>
+    <div className="flex flex-col md:flex-row">
+      <SignInForm className="flex basis-1/2 flex-col gap-5 bg-white px-5 py-6" />
+      <SignInGreeting className="flex shrink-0 grow-0 basis-1/2 flex-col items-center justify-center gap-4 bg-gradient-to-tr from-[#0ea5e9] from-10% to-lima-400 to-90% px-4 py-14 text-gray-100 sm:px-8 md:px-4" />
     </div>
   );
 }

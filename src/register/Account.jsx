@@ -1,8 +1,11 @@
 import BreadCrumb from "../ui/BreadCrumb";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import image1 from "../images/sidebar_banner.jpg";
+import SignInUp from "./SignInUp";
 
 function Account() {
+  const location = useLocation();
+
   return (
     <>
       <BreadCrumb />
@@ -20,6 +23,7 @@ function Account() {
           {/* account */}
           <div className="flex-grow">
             <Outlet />
+            {location.pathname === "/account" && <SignInUp />}
           </div>
         </div>
       </main>

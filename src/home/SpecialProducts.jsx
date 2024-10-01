@@ -64,10 +64,10 @@ function SpecialProducts() {
         </div>
 
         <Slider {...settings}>
-          {productData.map((el, key) => (
+          {productData.map((product) => (
             <ProductCard
-              data={el}
-              key={key}
+              data={product}
+              key={product.id}
               className="mx-auto mb-[10px] w-full md:mx-0 md:max-w-none"
             />
           ))}

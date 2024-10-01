@@ -84,26 +84,32 @@ export const promoData = [
 ///   category carousel data
 export const CategoryCarouselArray = [
   {
+    id: 1,
     image: thumb1,
     text: "Plants",
   },
   {
+    id: 2,
     image: thumb2,
     text: "Shovel & Rake",
   },
   {
+    id: 3,
     image: thumb3,
     text: "Fertilizer",
   },
   {
+    id: 4,
     image: thumb4,
     text: "Seed Bag",
   },
   {
+    id: 5,
     image: thumb5,
     text: "Watering Can",
   },
   {
+    id: 6,
     image: thumb6,
     text: "Accessories",
   },
@@ -113,12 +119,14 @@ export const CategoryCarouselArray = [
 
 export const introData = [
   {
+    id: 1,
     promoTitle: "Best Quality Gardenning Tools",
     promoDesc: "Discount Up To 40% Off",
     promoBanner: banner1,
     promoLink: "link1",
   },
   {
+    id: 2,
     promoTitle: "Latest Garden Flowring Plants",
     promoDesc: "Shipping & Cash on Delivery Avaliable",
     promoBanner: banner2,
@@ -131,303 +139,71 @@ export const introData = [
 
 export const productData = [
   {
+    id: 1,
     productImage: product1,
     productName: "wheel barrows",
     discountPrice: "43",
     originalPrice: "56",
   },
   {
-    productImage: product8,
-    productName: "garden fork",
-    discountPrice: "20",
-    originalPrice: "33",
-  },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
+    id: 2,
     productImage: product2,
     productName: "micro rain",
     discountPrice: "22",
     originalPrice: "35",
   },
   {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product2,
-    productName: "micro rain",
-    discountPrice: "22",
-    originalPrice: "35",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product2,
-    productName: "micro rain",
-    discountPrice: "22",
-    originalPrice: "35",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product2,
-    productName: "micro rain",
-    discountPrice: "22",
-    originalPrice: "35",
-  },
-  {
-    productImage: product11,
-    productName: "camping shovel",
-    discountPrice: "15",
-    originalPrice: "27",
-  },
-  {
-    productImage: product2,
-    productName: "micro rain",
-    discountPrice: "22",
-    originalPrice: "35",
-  },
-  {
+    id: 3,
     productImage: product3,
     productName: "pulsating sprinklers",
     discountPrice: "40",
     originalPrice: "60",
   },
   {
+    id: 4,
     productImage: product4,
     productName: "drive sprinkler",
     discountPrice: "43",
     originalPrice: "60",
   },
+
   {
-    productImage: product5,
-    productName: "husqvarna LC 140S",
-    discountPrice: "42",
-    originalPrice: "60",
-  },
-  {
+    id: 5,
     productImage: product6,
     productName: "pruninig saw",
     discountPrice: "41",
     originalPrice: "60",
   },
+
   {
-    productImage: product7,
-    productName: "micro rain",
-    discountPrice: "34",
-    originalPrice: "60",
-  },
-  {
+    id: 6,
     productImage: product8,
     productName: "garden fork",
     discountPrice: "20",
     originalPrice: "33",
   },
   {
-    productImage: product6,
-    productName: "pruninig saw",
-    discountPrice: "41",
-    originalPrice: "60",
-  },
-  {
-    productImage: product7,
-    productName: "micro rain",
-    discountPrice: "34",
-    originalPrice: "60",
-  },
-  {
-    productImage: product8,
-    productName: "garden fork",
-    discountPrice: "20",
-    originalPrice: "33",
-  },
-  {
-    productImage: product6,
-    productName: "pruninig saw",
-    discountPrice: "41",
-    originalPrice: "60",
-  },
-  {
-    productImage: product7,
-    productName: "micro rain",
-    discountPrice: "34",
-    originalPrice: "60",
-  },
-  {
-    productImage: product8,
-    productName: "garden fork",
-    discountPrice: "20",
-    originalPrice: "33",
-  },
-  {
-    productImage: product6,
-    productName: "pruninig saw",
-    discountPrice: "41",
-    originalPrice: "60",
-  },
-  {
-    productImage: product7,
-    productName: "micro rain",
-    discountPrice: "34",
-    originalPrice: "60",
-  },
-  {
-    productImage: product8,
-    productName: "garden fork",
-    discountPrice: "20",
-    originalPrice: "33",
-  },
-  {
-    productImage: product8,
-    productName: "garden fork",
-    discountPrice: "20",
-    originalPrice: "33",
-  },
-  {
-    productImage: product6,
-    productName: "pruninig saw",
-    discountPrice: "41",
-    originalPrice: "60",
-  },
-  {
-    productImage: product7,
-    productName: "micro rain",
-    discountPrice: "34",
-    originalPrice: "60",
-  },
-  {
-    productImage: product8,
-    productName: "garden fork",
-    discountPrice: "20",
-    originalPrice: "33",
-  },
-  {
+    id: 7,
     productImage: product9,
     productName: "husqvarna LC 140S",
     discountPrice: "25",
     originalPrice: "50",
   },
   {
+    id: 8,
     productImage: product10,
     productName: "cutco garden trowel",
     discountPrice: "10",
     originalPrice: "32",
   },
   {
+    id: 9,
     productImage: product11,
     productName: "camping shovel",
     discountPrice: "15",
     originalPrice: "27",
   },
-  {
-    productImage: product9,
-    productName: "husqvarna LC 140S",
-    discountPrice: "25",
-    originalPrice: "50",
-  },
-  {
-    productImage: product10,
-    productName: "cutco garden trowel",
-    discountPrice: "10",
-    originalPrice: "32",
-  },
 ];
-
-// export const productData = [
-//   {
-//     productImage: product1,
-//     productName: "wheel barrows",
-//     discountPrice: "43",
-//     originalPrice: "56",
-//   },
-//   {
-//     productImage: product2,
-//     productName: "micro rain",
-//     discountPrice: "22",
-//     originalPrice: "35",
-//   },
-//   {
-//     productImage: product3,
-//     productName: "pulsating sprinklers",
-//     discountPrice: "40",
-//     originalPrice: "60",
-//   },
-//   {
-//     productImage: product4,
-//     productName: "drive sprinkler",
-//     discountPrice: "43",
-//     originalPrice: "60",
-//   },
-//   // {
-//   //   productImage: product5,
-//   //   productName: "husqvarna LC 140S",
-//   //   discountPrice: "42",
-//   //   originalPrice: "60",
-//   // },
-//   {
-//     productImage: product6,
-//     productName: "pruninig saw",
-//     discountPrice: "41",
-//     originalPrice: "60",
-//   },
-//   // {
-//   //   productImage: product7,
-//   //   productName: "micro rain",
-//   //   discountPrice: "34",
-//   //   originalPrice: "60",
-//   // },
-//   {
-//     productImage: product8,
-//     productName: "garden fork",
-//     discountPrice: "20",
-//     originalPrice: "33",
-//   },
-//   {
-//     productImage: product9,
-//     productName: "husqvarna LC 140S",
-//     discountPrice: "25",
-//     originalPrice: "50",
-//   },
-//   {
-//     productImage: product10,
-//     productName: "cutco garden trowel",
-//     discountPrice: "10",
-//     originalPrice: "32",
-//   },
-//   {
-//     productImage: product11,
-//     productName: "camping shovel",
-//     discountPrice: "15",
-//     originalPrice: "27",
-//   },
-// ];
 
 /////////////////////////////////////
 ///   Mega Menu Data

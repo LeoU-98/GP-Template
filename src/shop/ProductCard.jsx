@@ -1,6 +1,7 @@
 import propTypes from "prop-types";
 import AddToCartButton from "./AddToCartButton";
 import StarRating from "../ui/StarRating";
+import { Link } from "react-router-dom";
 
 export default function ProductCard({ data, className }) {
   const { productImage, productName, discountPrice, originalPrice } = data;
@@ -10,7 +11,7 @@ export default function ProductCard({ data, className }) {
     >
       {/* image and stars  */}
       <div className="group relative flex flex-col items-center">
-        <div className="max-h-[280] max-w-[280px]">
+        <Link to="##" className="max-h-[280] max-w-[280px] outline-none">
           <img
             src={productImage}
             alt="product"
@@ -22,7 +23,7 @@ export default function ProductCard({ data, className }) {
               "absolute bottom-2 left-1/2  -translate-x-1/2 justify-center "
             }
           />
-        </div>
+        </Link>
       </div>
       {/* text data and cart  */}
       <div className="z-10 flex w-11/12 flex-col items-center gap-2 border-t-2 border-mercury-100 py-4">

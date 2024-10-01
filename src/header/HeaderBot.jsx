@@ -136,8 +136,8 @@ function CateogroyList({ data }) {
           </NavLink>
         </li>
         {/* Rest of Items  */}
-        {items?.map(({ itemTitle, itemLink }, key) => (
-          <li key={key}>
+        {items?.map(({ itemTitle, itemLink }) => (
+          <li key={itemTitle}>
             <NavLink
               to={itemLink}
               className="block w-full p-1 text-sm capitalize text-gray-700 hover:bg-white hover:text-lima-500"
@@ -170,7 +170,8 @@ function NestedNavMenu({ data, handlerText }) {
         handler={setIsMenuOpen}
         offset={{ mainAxis: 20 }}
         placement="bottom-start"
-        allowHover={true}
+        allowHover={false}
+        // allowHover={true}
       >
         <MenuHandler>
           <div className="font-medium">

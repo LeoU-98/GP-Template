@@ -51,7 +51,10 @@ function HeaderMid() {
             <span> - </span>
             <span>0 items</span>
           </div>
-          <CartPreview open={isCartPreviewOpen} />
+          <CartPreview
+            isCartPreviewOpen={isCartPreviewOpen}
+            setIsCartPreviewOpen={setIsCartPreviewOpen}
+          />
         </div>
       </div>
     </div>

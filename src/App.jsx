@@ -9,6 +9,8 @@ import Register from "./register/Register";
 import SignIn from "./register/SignIn";
 import ProductView from "./shop/ProductView";
 import BlogView from "./Blog/BlogView";
+import ForgotPassword from "./register/ForgotPassword";
+import ResetPassword from "./register/ResetPassword";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ const router = createBrowserRouter([
           {
             path: "signin",
             element: <SignIn />,
+          },
+          {
+            path: "forgotpassword",
+            element: <ForgotPassword />,
+          },
+          {
+            path: "resetpassword",
+            element: <ResetPassword />,
           },
         ],
       },

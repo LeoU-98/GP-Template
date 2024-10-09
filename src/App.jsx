@@ -11,6 +11,7 @@ import ProductView from "./shop/ProductView";
 import BlogView from "./Blog/BlogView";
 import ForgotPassword from "./register/ForgotPassword";
 import ResetPassword from "./register/ResetPassword";
+import EnterCode from "./register/EnterCode";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
           {
             path: "resetpassword",
             element: <ResetPassword />,
+          },
+          {
+            path: "EnterCode",
+            element: <EnterCode />,
           },
         ],
       },

@@ -83,7 +83,7 @@ export default HeaderBot;
 function NavList() {
   return (
     <nav>
-      <ul className="flex min-w-[240px] flex-col gap-4 px-4 py-4 font-sans text-base font-normal text-blue-gray-700 lg:flex-row lg:items-center lg:gap-7 lg:px-0 lg:py-2">
+      <ul className="flex min-w-[240px] select-none flex-col gap-4 px-4 py-4 font-sans text-base font-normal text-blue-gray-700 lg:flex-row lg:items-center lg:gap-7 lg:px-0 lg:py-2">
         <li>
           <NavLink
             to="/"

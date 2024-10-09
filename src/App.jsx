@@ -12,6 +12,7 @@ import BlogView from "./Blog/BlogView";
 import ForgotPassword from "./register/ForgotPassword";
 import ResetPassword from "./register/ResetPassword";
 import EnterCode from "./register/EnterCode";
+import ProfileEdit from "./profile/ProfileEdit";
 
 const router = createBrowserRouter([
   {
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
       {
         path: "blogView",
         element: <BlogView />,
+      },
+      {
+        path: "ProfileEdit",
+        element: <ProfileEdit />,
       },
     ],
   },

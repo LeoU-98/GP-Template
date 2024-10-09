@@ -13,7 +13,7 @@ export default function ProductImagePreview() {
     },
     dots: true,
     dotsClass: "!flex items-center gap-2 mt-6 justify-center",
-    className: "product-image-preview",
+    className: "product-image-preview ",
     infinite: false,
     speed: 500,
     arrows: false,
@@ -21,23 +21,32 @@ export default function ProductImagePreview() {
   };
 
   return (
-    <div className="w-full basis-1/2 lg:w-1/2 xl:w-2/5">
+    <div className="w-full basis-1/2 px-1 lg:w-1/2 xl:w-2/5">
       <Slider {...settings}>
-        <div className="!flex items-center justify-center border-[1px] border-gray-300">
-          <ImageZoom src={baseUrl + "mm1.jpg"} />
-        </div>
-        <div className="!flex items-center justify-center border-[1px] border-gray-300">
-          <ImageZoom src={baseUrl + "mm2.jpg"} />
-        </div>
-        <div className="!flex items-center justify-center border-[1px] border-gray-300">
-          <ImageZoom src={baseUrl + "mm3.jpg"} />
-        </div>
-        <div className="!flex items-center justify-center border-[1px] border-gray-300">
-          <ImageZoom src={baseUrl + "mm4.jpg"} />
-        </div>
-        <div className="!flex items-center justify-center border-[1px] border-gray-300">
-          <ImageZoom src={baseUrl + "mm5.jpg"} />
-        </div>
+        <ImageZoom
+          src={baseUrl + "mm1.jpg"}
+          className="border-[1px] border-gray-300"
+        />
+
+        <ImageZoom
+          src={baseUrl + "mm2.jpg"}
+          className="border-[1px] border-gray-300"
+        />
+
+        <ImageZoom
+          src={baseUrl + "mm3.jpg"}
+          className="border-[1px] border-gray-300"
+        />
+
+        <ImageZoom
+          src={baseUrl + "mm4.jpg"}
+          className="border-[1px] border-gray-300"
+        />
+
+        <ImageZoom
+          src={baseUrl + "mm5.jpg"}
+          className="border-[1px] border-gray-300"
+        />
       </Slider>
     </div>
   );

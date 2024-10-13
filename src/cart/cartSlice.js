@@ -1,43 +1,33 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = [];
-
 const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart(state, action) {
-      for (let index in state) {
-        if (state[index].id === action.payload.id) return;
+    addItem: (state, action) => {
+      const existingItem = state.find((item) => item.id === action.payload.id);
+      if (existingItem) {
+        existingItem.count = action.payload.count; // Update count if item already exists
+      } else {
+        state.push({ ...action.payload, count: action.payload.count }); // Add new item
       }
-
-      state.push({ ...action.payload, count: 1 });
     },
-
-    deleteFromCart(state, action) {
-      state = state.filter((product) => product.id !== action.payload);
+    removeItem: (state, action) => {
+      state = state.filter((item) => item.id !== action.payload.id); // Remove item by id
     },
-
-    updateCount: {
-      prepare(id, newCount) {
-        return {
-          payload: {
-            id,
-            newCount,
-          },
-        };
-      },
-      reducer(state, action) {
-        for (let index in state) {
-          if (state[index].id === action.payload.id) {
-            state[index].count = action.payload.newCount;
-          }
-        }
-      },
+    updateItemCount: (state, action) => {
+      const existingItem = state.find((item) => item.id === action.payload.id);
+      if (existingItem) {
+        existingItem.count = action.payload.count; // Update item count
+      }
+    },
+    clearCart: (state) => {
+      state = []; // Clear all items from the cart
     },
   },
 });
-
-export const { addToCart, updateCount, deleteFromCart } = cartSlice.actions;
+export const { addItem, removeItem, updateItemCount, clearCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

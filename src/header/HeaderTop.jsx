@@ -20,7 +20,7 @@ function HeaderTop() {
               <MenuHandler>
                 <span className="block cursor-pointer p-1 text-gray-600 hover:text-gray-900 focus:text-gray-900">
                   <UserIcon className="relative bottom-[2px] mr-1 inline-block size-4" />
-                  <span className="text-sm">My Account</span>
+                  <span className="text-sm">Account</span>
                   <ChevronDownIcon
                     strokeWidth={2.5}
                     className="relative bottom-[1px] ml-1 inline-block size-4"

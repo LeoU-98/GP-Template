@@ -1,69 +1,34 @@
-import React, { useState } from "react";
 import logo from "../images/logo.jpg";
 import CartPreview from "../cart/CartPreview";
-import {
-  Avatar,
-  Button,
-  Menu,
-  MenuHandler,
-  MenuItem,
-  MenuList,
-  Typography,
-} from "@material-tailwind/react";
-import {
-  ChevronDownIcon,
-  Cog6ToothIcon,
-  InboxArrowDownIcon,
-  LifebuoyIcon,
-  PowerIcon,
-  UserCircleIcon,
-  UserIcon,
-} from "@heroicons/react/24/outline";
+import { UserIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
-
-// profile menu component
-const profileMenuItems = [
-  {
-    label: "My Profile",
-    icon: UserCircleIcon,
-  },
-  {
-    label: "Edit Profile",
-    icon: Cog6ToothIcon,
-  },
-  {
-    label: "Inbox",
-    icon: InboxArrowDownIcon,
-  },
-  {
-    label: "Help",
-    icon: LifebuoyIcon,
-  },
-  {
-    label: "Sign Out",
-    icon: PowerIcon,
-  },
-];
+import { useState } from "react";
+import ProfileMenu from "./Mid/ProfileMenu";
 
 function HeaderMid() {
   const [isCartPreviewOpen, setIsCartPreviewOpen] = useState(false);
+  const logged = true;
 
   return (
     <div className="bg-white">
       <div className="container mx-auto flex flex-wrap justify-between sm:px-3">
         {/* left */}
         <div className="flex items-center p-4 sm:p-0 sm:py-2">
-          <Link
-            to={"/account/signin"}
-            className="group flex w-fit items-center gap-2 self-center rounded-full border border-lima-500 text-sm duration-500 hover:border-gray-500"
-          >
-            <div className="w-fit rounded-full bg-lima-500 p-2 duration-500 group-hover:bg-black">
-              <UserIcon className="size-8 text-white" />
-            </div>
-            <p className="cursor pl-1 pr-4 text-base duration-500 group-hover:text-lima-500">
-              Login
-            </p>
-          </Link>
+          {logged ? (
+            <ProfileMenu />
+          ) : (
+            <Link
+              to={"/account/signin"}
+              className="group flex w-fit items-center gap-2 self-center rounded-full border border-lima-500 text-sm duration-500 hover:border-gray-500"
+            >
+              <div className="w-fit rounded-full bg-lima-500 p-2 duration-500 group-hover:bg-black">
+                <UserIcon className="size-8 text-white" />
+              </div>
+              <p className="cursor pl-1 pr-4 text-base duration-500 group-hover:text-lima-500">
+                Login
+              </p>
+            </Link>
+          )}
         </div>
 
         {/* middle  */}
@@ -102,64 +67,3 @@ function HeaderMid() {
 }
 
 export default HeaderMid;
-
-function ProfileMenu() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-
-  const closeMenu = () => setIsMenuOpen(false);
-
-  return (
-    <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
-      <MenuHandler>
-        <Button
-          variant="text"
-          color="blue-gray"
-          className="flex items-center gap-1 rounded-full py-0.5 pl-0.5 pr-2 lg:ml-auto"
-        >
-          <Avatar
-            variant="circular"
-            size="sm"
-            alt="tania andrew"
-            className="border border-gray-900 p-0.5"
-            src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-          />
-          <ChevronDownIcon
-            strokeWidth={2.5}
-            className={`h-3 w-3 transition-transform ${
-              isMenuOpen ? "rotate-180" : ""
-            }`}
-          />
-        </Button>
-      </MenuHandler>
-      <MenuList className="p-1">
-        {profileMenuItems.map(({ label, icon }, key) => {
-          const isLastItem = key === profileMenuItems.length - 1;
-          return (
-            <MenuItem
-              key={label}
-              onClick={closeMenu}
-              className={`flex items-center gap-2 rounded ${
-                isLastItem
-                  ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                  : ""
-              }`}
-            >
-              {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
-                strokeWidth: 2,
-              })}
-              <Typography
-                as="span"
-                variant="small"
-                className="font-normal"
-                color={isLastItem ? "red" : "inherit"}
-              >
-                {label}
-              </Typography>
-            </MenuItem>
-          );
-        })}
-      </MenuList>
-    </Menu>
-  );
-}

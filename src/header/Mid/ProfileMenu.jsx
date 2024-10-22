@@ -45,7 +45,7 @@ export default function ProfileMenu() {
       <MenuHandler>
         <button
           type="button"
-          className="flex w-fit items-center gap-2 self-center rounded-full border border-gray-500 pr-2 text-sm duration-500"
+          className="flex w-fit items-center gap-2 self-center rounded-full border border-gray-500 pr-2 text-sm outline-none duration-500"
         >
           <img className="size-12 rounded-full" src={leou} />
           <p className="cursor text-base duration-500">LeoU</p>

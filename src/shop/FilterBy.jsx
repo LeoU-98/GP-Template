@@ -122,7 +122,7 @@ const filterData = [
 function FilterBy() {
   return (
     <div className="flex w-64 flex-col border-[1px] border-gray-300 bg-white pb-3">
-      <h2 className="mb-5 border-b-[1px] border-gray-300 py-3 ps-3 text-sm font-semibold uppercase">
+      <h2 className="mb-5 flex h-[54px] items-center border-b-[1px] border-gray-300 ps-3 text-sm font-semibold uppercase">
         filter by
       </h2>
       <div className="mt-1 flex flex-col gap-1">

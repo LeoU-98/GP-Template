@@ -185,7 +185,8 @@ export const productData = [
   {
     id: 7,
     productImage: product9,
-    productName: "husqvarna LC 140S",
+    productName: "husqvarna LC 140S husqvarna LC 140S",
+    // productName: "husqvarna LC 140S",
     discountPrice: "25",
     originalPrice: "50",
   },

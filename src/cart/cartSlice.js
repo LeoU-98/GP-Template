@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 const initialState = [];
 const cartSlice = createSlice({
@@ -26,5 +27,17 @@ const cartSlice = createSlice({
 });
 export const { addItem, removeItem, updateItemCount, clearCart } =
   cartSlice.actions;
+
+console.log(cartSlice);
+
+export function useCart() {
+  const cart = useSelector((store) => store.cart);
+  const totalItemsInCart = cart.length;
+  const totalCartPrice = cart.reduce((total, item) => {
+    return total + item.count * item.discountPrice;
+  }, 0);
+
+  return { cart, totalItemsInCart, totalCartPrice };
+}
 
 export default cartSlice.reducer;

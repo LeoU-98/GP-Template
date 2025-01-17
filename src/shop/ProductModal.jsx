@@ -3,6 +3,8 @@ import { Dialog } from "@material-tailwind/react";
 import { CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import ItemCounter from "./ItemCounter";
 import { useSelector } from "react-redux";
+import { useCart } from "../cart/cartSlice";
+import { Link } from "react-router-dom";
 
 function ProductModal({ handleOpen, open, itemID }) {
   return (
@@ -40,13 +42,9 @@ function ItemPreview({ handleOpen, itemID }) {
   const item = useSelector((store) =>
     store.cart.find((item) => item.id === itemID),
   );
-  const cart = useSelector((store) => store.cart);
-  const totalItemsInCart = cart.length;
-  const totalCartPrice = cart.reduce((total, item) => {
-    return total + item.count * item.discountPrice;
-  }, 0);
+  const { totalItemsInCart, totalCartPrice } = useCart();
 
-  console.log(totalCartPrice);
+  const totalItemPrice = item?.count * item?.discountPrice;
 
   return (
     <div className="mx-auto flex w-fit flex-col bg-white p-3 py-6 lg:flex-row lg:px-6 lg:py-12">
@@ -61,7 +59,7 @@ function ItemPreview({ handleOpen, itemID }) {
         </div>
         <div className="flex lg:ml-2">
           <div className="flex flex-col gap-1 text-sm">
-            <span className="text-base capitalize text-lima-500">
+            <span className="max-w-40 text-base capitalize text-lima-500">
               {item?.productName}
             </span>
             <span className="">
@@ -69,7 +67,7 @@ function ItemPreview({ handleOpen, itemID }) {
             </span>
             <span className="">Quantity:{item?.count ? item?.count : 0}</span>
             <span className="mb-2">
-              Total Price: ${item?.count * item?.discountPrice}
+              Total Price: ${totalItemPrice.toFixed(2).replace(/\.?0+$/, "")}
             </span>
             <ItemCounter itemID={itemID} handleOpen={handleOpen} />
           </div>
@@ -84,7 +82,7 @@ function ItemPreview({ handleOpen, itemID }) {
           </p>
           <div className="mb-3 flex justify-between px-1">
             <span>Total products:</span>
-            <span>${totalCartPrice}</span>
+            <span>${totalCartPrice.toFixed(2).replace(/\.?0+$/, "")}</span>
           </div>
           <div className="mb-3 flex justify-between px-1">
             <span>Total shipping:</span>
@@ -92,7 +90,10 @@ function ItemPreview({ handleOpen, itemID }) {
           </div>
           <div className="mb-5 flex justify-between bg-gray-200 p-1">
             <span>Total</span>
-            <span>${totalCartPrice + 200} (tax incl.)</span>
+            <span>
+              ${(totalCartPrice + 200).toFixed(2).replace(/\.?0+$/, "")} (tax
+              incl.)
+            </span>
           </div>
           <div className="flex flex-col items-center gap-2 lg:flex-row">
             <button
@@ -101,12 +102,12 @@ function ItemPreview({ handleOpen, itemID }) {
             >
               continue shopping
             </button>
-            <button
-              onClick={handleOpen}
+            <Link
+              to="/view-cart"
               className="outline-normal flex w-full items-center justify-center text-nowrap rounded-full bg-lima-500 px-6 py-3 text-xs uppercase leading-[normal] text-white duration-300 hover:bg-black lg:w-auto"
             >
-              proceed to checkout
-            </button>
+              View Cart
+            </Link>
           </div>
         </div>
       </div>

@@ -4,10 +4,12 @@ import { UserIcon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import ProfileMenu from "./Mid/ProfileMenu";
+import { useCart } from "../cart/cartSlice";
 
 function HeaderMid() {
   const [isCartPreviewOpen, setIsCartPreviewOpen] = useState(false);
   const logged = true;
+  const { totalItemsInCart, totalCartPrice } = useCart();
 
   return (
     <div className="bg-white">
@@ -52,9 +54,9 @@ function HeaderMid() {
           </div>
 
           <div className="text-xs md:text-sm">
-            <span>$00.0</span>
+            <span>${totalCartPrice}</span>
             <span> - </span>
-            <span>0 items</span>
+            <span>{totalItemsInCart} items</span>
           </div>
           <CartPreview
             isCartPreviewOpen={isCartPreviewOpen}

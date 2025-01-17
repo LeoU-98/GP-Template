@@ -3,8 +3,18 @@ import AddToCartButton from "./AddToCartButton";
 import StarRating from "../ui/StarRating";
 import { Link } from "react-router-dom";
 
+import { addItem } from "../cart/cartSlice";
+import { useDispatch } from "react-redux";
+
 export default function ProductCard({ data, className }) {
-  const { productImage, productName, discountPrice, originalPrice } = data;
+  const { id, productImage, productName, discountPrice, originalPrice } = data;
+
+  const dispatch = useDispatch();
+
+  function handleAddToCart() {
+    dispatch(addItem({ ...data }));
+  }
+
   return (
     <div
       className={`flex h-full max-w-[312px] cursor-pointer flex-col items-center overflow-hidden rounded-md border-2 bg-white ${className}`}
@@ -36,8 +46,10 @@ export default function ProductCard({ data, className }) {
             ${originalPrice}
           </span>
         </div>
-        {/* add to cart data  */}
-        <AddToCartButton />
+
+        <div onClick={handleAddToCart}>
+          <AddToCartButton itemID={id} />
+        </div>
       </div>
     </div>
   );

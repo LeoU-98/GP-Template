@@ -1,29 +1,12 @@
-import image from "../images/products/hummingbird-printed-t-shirt.jpg";
 import propTypes from "prop-types";
-import { useState } from "react";
 import { Dialog } from "@material-tailwind/react";
-import {
-  CheckIcon,
-  XMarkIcon,
-  ShoppingBagIcon,
-} from "@heroicons/react/24/outline";
+import { CheckIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import ItemCounter from "./ItemCounter";
+import { useSelector } from "react-redux";
 
-function ProductModal({ svgClassName }) {
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => setOpen(!open);
-
+function ProductModal({ handleOpen, open, itemID }) {
   return (
     <>
-      <button
-        onClick={handleOpen}
-        className={`flex items-center gap-1 rounded-full bg-lima-500 px-4 py-[6px] text-xs capitalize text-white duration-300 hover:bg-black`}
-      >
-        <ShoppingBagIcon className={`size-6 text-white ${svgClassName}`} />
-        <span className="relative top-[1px] flex items-center justify-center">
-          add to cart
-        </span>
-      </button>
       <Dialog
         open={open}
         handler={handleOpen}
@@ -44,7 +27,7 @@ function ProductModal({ svgClassName }) {
               onClick={handleOpen}
             />
           </div>
-          <ItemPreview handleOpen={handleOpen} />
+          <ItemPreview handleOpen={handleOpen} itemID={itemID} />
         </div>
       </Dialog>
     </>
@@ -53,23 +36,42 @@ function ProductModal({ svgClassName }) {
 
 export default ProductModal;
 
-function ItemPreview({ handleOpen }) {
+function ItemPreview({ handleOpen, itemID }) {
+  const item = useSelector((store) =>
+    store.cart.find((item) => item.id === itemID),
+  );
+  const cart = useSelector((store) => store.cart);
+  const totalItemsInCart = cart.length;
+  const totalCartPrice = cart.reduce((total, item) => {
+    return total + item.count * item.discountPrice;
+  }, 0);
+
+  console.log(totalCartPrice);
+
   return (
     <div className="mx-auto flex w-fit flex-col bg-white p-3 py-6 lg:flex-row lg:px-6 lg:py-12">
       {/* left */}
       <div className="flex flex-col items-center sm:flex-row">
         <div className="size-40">
-          <img src={image} className="w-full" />
+          {item?.productImage ? (
+            <img src={item?.productImage} className="w-full" />
+          ) : (
+            <XMarkIcon className="w-36 text-red-500" />
+          )}
         </div>
         <div className="flex lg:ml-2">
           <div className="flex flex-col gap-1 text-sm">
             <span className="text-base capitalize text-lima-500">
-              Water pump
+              {item?.productName}
             </span>
-            <span className="">$500</span>
-            <span className="">Quantity: 50</span>
-            <span className="mb-2">Total Price: $400</span>
-            <ItemCounter />
+            <span className="">
+              ${item?.discountPrice ? item?.discountPrice : 0}
+            </span>
+            <span className="">Quantity:{item?.count ? item?.count : 0}</span>
+            <span className="mb-2">
+              Total Price: ${item?.count * item?.discountPrice}
+            </span>
+            <ItemCounter itemID={itemID} handleOpen={handleOpen} />
           </div>
           <Specification />
         </div>
@@ -78,11 +80,11 @@ function ItemPreview({ handleOpen }) {
       <div>
         <div className="mt-3 border-t-[1px] border-gray-300 pt-3 text-sm lg:ml-5 lg:mt-0 lg:border-l-[1px] lg:border-t-0 lg:px-4 lg:pt-0">
           <p className="mb-3 text-base sm:text-lg">
-            There are 37 items in your cart
+            There are {totalItemsInCart} items in your cart
           </p>
           <div className="mb-3 flex justify-between px-1">
             <span>Total products:</span>
-            <span>$800</span>
+            <span>${totalCartPrice}</span>
           </div>
           <div className="mb-3 flex justify-between px-1">
             <span>Total shipping:</span>
@@ -90,7 +92,7 @@ function ItemPreview({ handleOpen }) {
           </div>
           <div className="mb-5 flex justify-between bg-gray-200 p-1">
             <span>Total</span>
-            <span>$1000 (tax incl.)</span>
+            <span>${totalCartPrice + 200} (tax incl.)</span>
           </div>
           <div className="flex flex-col items-center gap-2 lg:flex-row">
             <button
@@ -133,8 +135,10 @@ function Specification() {
 
 ItemPreview.propTypes = {
   handleOpen: propTypes.func,
+  itemID: propTypes.number,
 };
 ProductModal.propTypes = {
-  className: propTypes.string,
-  svgClassName: propTypes.string,
+  handleOpen: propTypes.func,
+  open: propTypes.bool,
+  itemID: propTypes.number,
 };

@@ -1,31 +1,49 @@
-import { MinusIcon, PlusIcon } from "@heroicons/react/24/outline";
+import { MinusIcon, PlusIcon, TrashIcon } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
-export default function ItemCounter() {
-  const [count, setCount] = useState(0);
+import propTypes from "prop-types";
+import { useDispatch, useSelector } from "react-redux";
+import { removeItem, updateItemCount } from "../cart/cartSlice";
+
+export default function ItemCounter({ itemID, handleOpen }) {
+  const dispatch = useDispatch();
+  const item = useSelector((store) =>
+    store.cart.find((item) => item.id === itemID),
+  );
 
   function handleInc() {
-    setCount(count + 1);
+    dispatch(updateItemCount({ id: itemID, count: item.count + 1 }));
   }
-  function handleDec() {
-    if (count === 0) return;
-    setCount(count - 1);
+  function handleDec(e) {
+    if (item.count === 1) {
+      e.stopPropagation();
+      dispatch(removeItem({ id: itemID }));
+      handleOpen((state) => !state);
+      return;
+    }
+
+    dispatch(updateItemCount({ id: itemID, count: item.count - 1 }));
   }
+
   function handleSetCount(e) {
-    setCount(Number(e.target.value));
+    dispatch(updateItemCount({ id: itemID, count: Number(e.target.value) }));
   }
 
   return (
     <div className="flex items-center justify-between gap-2">
       <button
-        onClick={handleDec}
-        className="flex items-center justify-center rounded-full border-none bg-lima-500 fill-white p-1 text-white duration-300 hover:bg-black"
+        onClick={(e) => handleDec(e)}
+        className={`flex items-center justify-center rounded-full border-none ${item?.count === 1 ? "bg-red-500" : "bg-lima-500"} fill-white p-1 text-white duration-300 hover:bg-black`}
       >
-        <MinusIcon className="size-4" />
+        {item?.count === 1 ? (
+          <TrashIcon className="size-4" />
+        ) : (
+          <MinusIcon className="size-4" />
+        )}
       </button>
       <input
         type="text"
-        value={count}
+        value={item?.count ? item?.count : 0}
         onChange={handleSetCount}
         className="w-8 text-center outline-none focus:ring-1 focus:ring-lima-500"
       />
@@ -38,3 +56,8 @@ export default function ItemCounter() {
     </div>
   );
 }
+
+ItemCounter.propTypes = {
+  itemID: propTypes.number,
+  handleOpen: propTypes.func,
+};

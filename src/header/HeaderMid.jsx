@@ -7,7 +7,7 @@ import ProfileMenu from "./Mid/ProfileMenu";
 
 function HeaderMid() {
   const [isCartPreviewOpen, setIsCartPreviewOpen] = useState(false);
-  const logged = false;
+  const logged = true;
 
   return (
     <div className="bg-white">

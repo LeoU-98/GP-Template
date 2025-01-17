@@ -37,7 +37,7 @@ export default function ProductCard({ data, className }) {
       </div>
       {/* text data and cart  */}
       <div className="z-10 flex w-11/12 flex-col items-center gap-2 border-t-2 border-mercury-100 py-4">
-        <div className="text-nowrap capitalize text-gray-900">
+        <div className="line-clamp-1 capitalize text-gray-900">
           {productName}
         </div>
         <div className="text-lima-500">

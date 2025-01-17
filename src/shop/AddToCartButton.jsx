@@ -9,7 +9,6 @@ export default function AddToCartButton({ svgClassName, itemID }) {
     setOpen(!open);
   }
 
-  // console.log(itemID);
   return (
     <>
       <button

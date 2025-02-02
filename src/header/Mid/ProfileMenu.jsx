@@ -8,30 +8,28 @@ import {
 } from "@material-tailwind/react";
 import {
   ChevronDownIcon,
-  Cog6ToothIcon,
   InboxArrowDownIcon,
   PowerIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import leou from "../../images/leou.jpg";
+import { NavLink } from "react-router-dom";
 
-// profile menu component
 const profileMenuItems = [
   {
     label: "My Profile",
     icon: UserCircleIcon,
-  },
-  {
-    label: "Edit Profile",
-    icon: Cog6ToothIcon,
+    path: "MyProfile",
   },
   {
     label: "Inbox",
     icon: InboxArrowDownIcon,
+    path: "Inbox",
   },
   {
     label: "Sign Out",
     icon: PowerIcon,
+    path: "SignOut",
   },
 ];
 
@@ -58,31 +56,32 @@ export default function ProfileMenu() {
         </button>
       </MenuHandler>
       <MenuList className="p-1">
-        {profileMenuItems.map(({ label, icon }, key) => {
+        {profileMenuItems.map(({ label, icon, path }, key) => {
           const isLastItem = key === profileMenuItems.length - 1;
           return (
-            <MenuItem
-              key={label}
-              onClick={closeMenu}
-              className={`flex items-center gap-2 rounded text-gray-900 ${
-                isLastItem
-                  ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                  : ""
-              }`}
-            >
-              {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
-                strokeWidth: 2,
-              })}
-              <Typography
-                as="span"
-                variant="small"
-                className="font-normal"
-                color={isLastItem ? "red" : "inherit"}
+            <NavLink to={path} key={key}>
+              <MenuItem
+                onClick={closeMenu}
+                className={`flex items-center gap-2 rounded text-gray-900 ${
+                  isLastItem
+                    ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+                    : ""
+                }`}
               >
-                {label}
-              </Typography>
-            </MenuItem>
+                {React.createElement(icon, {
+                  className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+                  strokeWidth: 2,
+                })}
+                <Typography
+                  as="span"
+                  variant="small"
+                  className="font-normal"
+                  color={isLastItem ? "red" : "inherit"}
+                >
+                  {label}
+                </Typography>
+              </MenuItem>
+            </NavLink>
           );
         })}
       </MenuList>

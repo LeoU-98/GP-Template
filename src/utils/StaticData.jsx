@@ -211,56 +211,56 @@ export const productData = [
 
 export const megaMenuData = [
   {
-    categoryItem: "garden equipment",
-    categoryLink: "garden-equipment",
+    categoryItem: "Agricultural Products",
+    categoryLink: "Products/AgriculturalProducts",
     items: [
       {
-        itemTitle: "bow rake",
-        itemLink: "garden-equipment/bow-rake",
+        itemTitle: "Crops & Fresh Produce",
+        itemLink: "Products/AgriculturalProducts/Crop&FreshProduce",
       },
       {
-        itemTitle: "garden knife",
-        itemLink: "garden-equipment/garden-knife",
+        itemTitle: "Seeds & Saplings",
+        itemLink: "Products/AgriculturalProducts/Seeds&Saplings",
       },
       {
-        itemTitle: "pruning shears",
-        itemLink: "garden-equipment/pruning-shears",
+        itemTitle: "Organic & Sustainable Products",
+        itemLink: "Products/AgriculturalProducts/Organic&SustainableProducts",
       },
     ],
   },
   {
-    categoryItem: "planting tools",
-    categoryLink: "planting-tools",
+    categoryItem: "Farming Equipments",
+    categoryLink: "Products/FarmingEquipments",
     items: [
       {
-        itemTitle: "gloves",
-        itemLink: "planting-tools/gloves",
+        itemTitle: "Machinery & Tools",
+        itemLink: "Products/FarmingEquipments/Machinery&Tools",
       },
       {
-        itemTitle: "hand trowel",
-        itemLink: "planting-tools/hand-trowel",
+        itemTitle: "Agri-Tech Solutions",
+        itemLink: "Products/FarmingEquipments/Agri-TechSolution",
       },
       {
-        itemTitle: "pruning shears",
-        itemLink: "planting-tools/pruning-shears",
+        itemTitle: "Storage & Processing ",
+        itemLink: "Products/FarmingEquipments/Storage&Processing ",
       },
     ],
   },
   {
-    categoryItem: "string trimmer",
-    categoryLink: "string-trimmer",
+    categoryItem: "Farm Supplies",
+    categoryLink: "Products/FarmSupplies",
     items: [
       {
-        itemTitle: "hand prunner",
-        itemLink: "hand-prunner",
+        itemTitle: "Irrigation & Water Management",
+        itemLink: "Products/FarmSupplies/Irrigation",
       },
       {
-        itemTitle: "hedge shears",
-        itemLink: "hedge-shears",
+        itemTitle: "Livestock & Poultry Supplies",
+        itemLink: "Products/FarmSupplies/Livestock",
       },
       {
-        itemTitle: "topiary",
-        itemLink: "topiary",
+        itemTitle: "Protective Gear & Packaging",
+        itemLink: "Products/FarmSupplies/Packaging",
       },
     ],
   },

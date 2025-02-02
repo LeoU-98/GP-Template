@@ -12,7 +12,12 @@ import BlogView from "./Blog/BlogView";
 import ForgotPassword from "./register/ForgotPassword";
 import ResetPassword from "./register/ResetPassword";
 import EnterCode from "./register/EnterCode";
-import ProfileEdit from "./profile/ProfileEdit";
+import MyProfile from "./profile/MyProfile";
+import AccountDetails from "./profile/AccountDetails";
+import ProductsDashboard from "./Dashoard/ProductsDashboard";
+import EquipmentDashboard from "./Dashoard/EquipmentDashboard";
+import SuppliesDashboard from "./Dashoard/SuppliesDashboard";
+import DashboardLayout from "./Dashoard/DashboardLayout";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +28,37 @@ const router = createBrowserRouter([
         element: <Home />,
         index: true,
       },
+      {
+        path: "Dashboard",
+        element: <DashboardLayout />,
+        children: [
+          {
+            path: "ProductsDashboard",
+            element: <ProductsDashboard />,
+          },
+          {
+            path: "EquipmentDashboard",
+            element: <EquipmentDashboard />,
+          },
+          {
+            path: "SuppliesDashboard",
+            element: <SuppliesDashboard />,
+          },
+        ],
+      },
+
+      {
+        path: "MyProfile",
+        element: <MyProfile />,
+        children: [
+          {
+            index: true,
+            path: "AccountDetails",
+            element: <AccountDetails />,
+          },
+        ],
+      },
+
       {
         path: "account",
         element: <Account />,
@@ -55,44 +91,27 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "garden-equipment",
+        path: "Products",
         element: <Products />,
         children: [
           {
-            path: "bow-rake",
+            path: "AgriculturalProducts",
+            element: <Products />,
+          },
+
+          {
+            path: "AgriculturalProducts/Crop&FreshProduce",
             element: <Products />,
           },
           {
-            path: "garden-knife",
+            path: "AgriculturalProducts/Seeds&Saplings",
             element: <Products />,
           },
           {
-            path: "pruning-shears",
+            path: "AgriculturalProducts/Organic&SustainableProducts",
             element: <Products />,
           },
         ],
-      },
-      {
-        path: "planting-tools",
-        element: <Products />,
-        children: [
-          {
-            path: "gloves",
-            element: <Products />,
-          },
-          {
-            path: "hand-trowel",
-            element: <Products />,
-          },
-          {
-            path: "pruning-shears",
-            element: <Products />,
-          },
-        ],
-      },
-      {
-        path: "product",
-        element: <Products />,
       },
       {
         path: "blog",
@@ -106,10 +125,6 @@ const router = createBrowserRouter([
       {
         path: "blogView",
         element: <BlogView />,
-      },
-      {
-        path: "ProfileEdit",
-        element: <ProfileEdit />,
       },
     ],
   },

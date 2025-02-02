@@ -52,7 +52,6 @@ const router = createBrowserRouter([
         element: <MyProfile />,
         children: [
           {
-            index: true,
             path: "AccountDetails",
             element: <AccountDetails />,
           },

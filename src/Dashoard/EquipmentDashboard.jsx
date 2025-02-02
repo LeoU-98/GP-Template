@@ -24,9 +24,9 @@ const storageInvestment = [
 function EquipmentDashboard() {
   return (
     <Dashboard
-      barTitle={"Product Demand"}
-      lineTitle={"Market Price Trends"}
-      pieTitle={"Revenue Breakdown"}
+      barTitle={"Equipment Sales"}
+      lineTitle={"Agri-Tech Trends"}
+      pieTitle={"Storage Investment"}
       barData={equipmentSalesData}
       lineData={agriTechTrends}
       pieData={storageInvestment}

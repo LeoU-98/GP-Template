@@ -63,9 +63,9 @@ function Dashboard({
       </div>
 
       {/* Pie Chart */}
-      <div className="col-start-3 rounded-2xl bg-white p-4 shadow-lg lg:row-start-1">
+      <div className="col-start-3 rounded-2xl bg-white p-4 shadow-lg lg:row-span-2 lg:row-start-1">
         <h2 className="mb-2 text-xl font-semibold">{pieTitle}</h2>
-        <ResponsiveContainer width="100%" height={250}>
+        <ResponsiveContainer width="100%" height={500}>
           <PieChart>
             <Pie
               data={pieData}

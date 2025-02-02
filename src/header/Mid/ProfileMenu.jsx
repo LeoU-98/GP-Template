@@ -19,17 +19,17 @@ const profileMenuItems = [
   {
     label: "My Profile",
     icon: UserCircleIcon,
-    path: "MyProfile",
+    path: "MyProfile/AccountDetails",
   },
   {
     label: "Inbox",
     icon: InboxArrowDownIcon,
-    path: "Inbox",
+    path: "MyProfile/",
   },
   {
     label: "Sign Out",
     icon: PowerIcon,
-    path: "SignOut",
+    path: "MyProfile/",
   },
 ];
 

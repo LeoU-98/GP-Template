@@ -23,9 +23,9 @@ const packagingMaterials = [
 function SuppliesDashboard() {
   return (
     <Dashboard
-      barTitle={"Product Demand"}
-      lineTitle={"Market Price Trends"}
-      pieTitle={"Revenue Breakdown"}
+      barTitle={"Water Usage by Irrigation Method"}
+      lineTitle={"Livestocks Demand"}
+      pieTitle={"Packaging Materials Usage"}
       barData={irrigationData}
       lineData={livestockTrends}
       pieData={packagingMaterials}
